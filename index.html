@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AquaWave Swimming Club & Arena | Dhaka's Premier Aquatic Center</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit (EN) + Hind Siliguri & Noto Sans Bengali (BN) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#051D26',
+              800: '#072833',
+              700: '#0E3B4A',
+            },
+            aqua: {
+              50: '#EEF5F8',
+              100: '#E6F1F5',
+              200: '#A5F3FC',
+              400: '#0E7490',
+              500: '#0B5C6B',
+              600: '#084754',
+            },
+            coral: {
+              50: '#FFF4EF',
+              100: '#FFE4D8',
+              400: '#D97706',
+              500: '#C25934',
+              600: '#9F4323',
+            },
+            reef: {
+              100: '#CCFBF1',
+              600: '#0F766E',
+              700: '#115E59',
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            bn: ['Hind Siliguri', 'Noto Sans Bengali', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      /* Surface Hierarchy Tokens */
+      --bg-canvas: #F7FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-tint: #EEF5F8;
+      --bg-foam: #E6F1F5;
+      --bg-abyss: #072833;
+      --bg-abyss-deep: #051D26;
+      --bg-abyss-elevated: #0E3B4A;
+
+      /* Ink & Typography Tokens */
+      --ink-primary: #0F2933;
+      --ink-secondary: #3B5561;
+      --ink-muted: #627D8A;
+      --ink-on-dark: #F1F8FA;
+      --ink-on-dark-muted: #B8D2DC;
+
+      /* Brand & Accent Tokens */
+      --accent-primary: #0B5C6B;
+      --accent-cerulean: #0E7490;
+      --accent-primary-hover: #084754;
+      --accent-luminous: #38BDF8;
+      --accent-seafoam: #5EEAD4;
+      --accent-secondary: #C25934;
+      --accent-amber: #D97706;
+
+      /* Borders, Shadows & Semantic States */
+      --border-subtle: #DCE6EC;
+      --border-strong: #C2D4DF;
+      --shadow-card: 0 10px 28px -12px rgba(7, 40, 51, 0.08), 0 2px 6px -1px rgba(15, 41, 51, 0.04);
+      --shadow-elevated: 0 20px 40px -16px rgba(7, 40, 51, 0.16);
+      --state-success: #0F766E;
+      --state-warning: #B45309;
+      --state-error: #BE123C;
+    }
+
+    /* Default English Typography */
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg-canvas);
+      color: var(--ink-primary);
+      overflow-x: hidden;
+      transition: font-size 0.2s ease, background-color 0.25s ease, color 0.25s ease;
+    }
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--ink-primary);
+    }
+    .bg-abyss-band h1,
+    .bg-abyss-band h2,
+    .bg-abyss-band h3,
+    .bg-abyss-band h4,
+    footer h1, footer h2, footer h3, footer h4 {
+      color: var(--ink-on-dark);
+    }
+
+    /* Crisp Bangla Typography Adjustments */
+    html[data-lang="bn"] body {
+      font-family: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0.005em;
+    }
+    html[data-lang="bn"] h1,
+    html[data-lang="bn"] h2,
+    html[data-lang="bn"] h3,
+    html[data-lang="bn"] h4,
+    html[data-lang="bn"] .font-display {
+      font-family: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+      line-height: 1.38;
+      letter-spacing: 0;
+    }
+    html[data-lang="bn"] .uppercase {
+      text-transform: none;
+      letter-spacing: 0.02em;
+    }
+
+    /* Offset anchor scroll so sticky navbar never covers section headings */
+    section[id] {
+      scroll-margin-top: 88px;
+    }
+
+    /* Hero Background with Deep Abyssal Slate-Teal & Cerulean Gradient */
+    .aqua-hero-bg {
+      background: linear-gradient(135deg, rgba(5, 29, 38, 0.93) 0%, rgba(7, 40, 51, 0.84) 55%, rgba(11, 92, 107, 0.76) 100%),
+                  url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+    }
+
+    /* Image Fallback Gradient */
+    .img-fallback {
+      background: linear-gradient(135deg, var(--bg-abyss) 0%, var(--accent-primary) 58%, var(--accent-cerulean) 100%);
+    }
+
+    /* Architectural Card Elevation & Focus Polish */
+    .aqua-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-card);
+    }
+    .aqua-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-elevated);
+    }
+    .aqua-input {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-subtle);
+      color: var(--ink-primary);
+    }
+    .aqua-input:focus {
+      outline: none;
+      border-color: var(--accent-cerulean);
+      background-color: var(--bg-surface);
+      box-shadow: 0 0 0 3px rgba(14, 116, 144, 0.14);
+    }
+
+    /* Subtle Scroll Reveal */
+    .reveal-section {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .reveal-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-tint);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #9BB4C0;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-primary);
+    }
+
+    /* Accordion Transition */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.34s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 360px;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen selection:bg-[#0E7490] selection:text-white">
+
+  <!-- ==================== STICKY GLASSMORPHIC HEADER ==================== -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-[#DCE6EC] shadow-sm">
+    <!-- Top Info Bar -->
+    <div class="bg-[#072833] text-[#F1F8FA] text-xs py-1.5 px-4 hidden md:block border-b border-white/10">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-6">
+          <span>
+            <i class="fa-solid fa-location-dot text-[#5EEAD4] mr-1.5"></i>
+            <span data-i18n="top_address">Road 11, Block H, Banani Aquatic Complex, Dhaka 1213</span>
+          </span>
+          <span>
+            <i class="fa-solid fa-temperature-half text-[#5EEAD4] mr-1.5"></i>
+            <span data-i18n="top_temp">Water Temp: 28.5°C (UV-C & Ozone Treated)</span>
+          </span>
+        </div>
+        <div class="flex items-center space-x-5">
+          <span>
+            <i class="fa-regular fa-clock text-[#5EEAD4] mr-1.5"></i>
+            <span data-i18n="top_hours">Daily: 6:00 AM – 10:30 PM</span>
+          </span>
+          <a href="tel:+8801711000000" class="hover:text-[#5EEAD4] transition">
+            <i class="fa-solid fa-phone text-[#5EEAD4] mr-1.5"></i>
+            <span data-i18n="top_phone">+880 1711-000000</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-3 gap-2">
+        <!-- Brand Logo -->
+        <a href="#home" class="flex items-center space-x-2.5 text-left group focus:outline-none shrink-0">
+          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-[#0E7490] via-[#0B5C6B] to-[#072833] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-person-swimming text-lg sm:text-xl"></i>
+          </div>
+          <div>
+            <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-[#0F2933] block leading-none">Aqua<span class="text-[#0E7490]">Wave</span></span>
+            <span data-i18n="brand_sub" class="text-[10px] font-bold uppercase tracking-widest text-[#627D8A]">Swimming Club & Arena</span>
+          </div>
+        </a>
+
+        <!-- Desktop Scroll-Spy Anchor Links (All 8 Sections) -->
+        <div class="hidden xl:flex items-center space-x-0.5" id="desktop-nav">
+          <a href="#home" data-section="home" data-i18n="nav_home" class="nav-link px-2.5 py-2 rounded-xl text-sm font-semibold text-[#0B5C6B] bg-[#EEF5F8] transition">Home</a>
+          <a href="#about" data-section="about" data-i18n="nav_about" class="nav-link px-2.5 py-2 rounded-xl text-sm font-semibold text-[#3B5561] hover:text-[#0F2933] hover:bg-[#EEF5F8]/70 transition">About Us</a>
+          <a href="#programs" data-section="programs" data-i18n="nav_programs" class="nav-link px-2.5 py-2 rounded-xl text-sm font-semibold text-[#3B5561] hover:text-[#0F2933] hover:bg-[#EEF5F8]/70 transition">Swimming Programs</a>
+          <a href="#membership" data-section="membership" data-i18n="nav_membership" class="nav-link px-2.5 py-2 rounded-xl text-sm font-semibold text-[#3B5561] hover:text-[#0F2933] hover:bg-[#EEF5F8]/70 transition">Membership</a>
+          <a href="#booking" data-section="booking" data-i18n="nav_booking" class="nav-link px-2.5 py-2 rounded-xl text-sm font-semibold text-[#3B5561] hover:text-[#0F2933] hover:bg-[#EEF5F8]/70 transition">Booking</a>
+          <a href="#gallery" data-section="gallery" data-i18n="nav_gallery" class="nav-link px-2.5 py-2 rounded-xl text-sm font-semibold text-[#3B5561] hover:text-[#0F2933] hover:bg-[#EEF5F8]/70 transition">Gallery</a>
+          <a href="#contact" data-section="contact" data-i18n="nav_contact" class="nav-link px-2.5 py-2 rounded-xl text-sm font-semibold text-[#3B5561] hover:text-[#0F2933] hover:bg-[#EEF5F8]/70 transition">Contact</a>
+          <a href="#faq" data-section="faq" data-i18n="nav_faq" class="nav-link px-2.5 py-2 rounded-xl text-sm font-semibold text-[#3B5561] hover:text-[#0F2933] hover:bg-[#EEF5F8]/70 transition">FAQ</a>
+        </div>
+
+        <!-- Language Switcher Pill + Primary CTA + Mobile Hamburger -->
+        <div class="flex items-center space-x-2 sm:space-x-3 shrink-0">
+          <!-- Sleek EN | বাং Pill Toggle -->
+          <div role="group" aria-label="Language Switcher" class="inline-flex items-center bg-[#EEF5F8] p-1 rounded-full border border-[#DCE6EC] shadow-inner">
+            <button type="button" onclick="setLanguage('en')" data-lang-btn="en" class="lang-toggle-btn px-2.5 sm:px-3 py-1 rounded-full text-xs font-extrabold bg-[#0B5C6B] text-white shadow-sm transition-all">
+              EN
+            </button>
+            <button type="button" onclick="setLanguage('bn')" data-lang-btn="bn" class="lang-toggle-btn px-2.5 sm:px-3 py-1 rounded-full text-xs font-bold text-[#3B5561] hover:text-[#0F2933] transition-all font-bn">
+              বাং
+            </button>
+          </div>
+
+          <a href="#booking" class="hidden sm:inline-flex items-center bg-[#0B5C6B] hover:bg-[#084754] text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-sm hover:shadow transition">
+            <i class="fa-regular fa-calendar-check mr-2 text-[#5EEAD4]"></i>
+            <span data-i18n="nav_book_now">Book Now</span>
+          </a>
+
+          <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu" class="xl:hidden p-2.5 rounded-xl bg-[#EEF5F8] hover:bg-[#E6F1F5] text-[#0F2933] border border-[#DCE6EC] transition">
+            <i class="fa-solid fa-bars text-lg" id="mobile-menu-icon"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Drawer -->
+      <div id="mobile-menu" class="hidden xl:hidden pb-4 pt-2 border-t border-[#DCE6EC] space-y-3">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <a href="#home" data-section="home" data-i18n="nav_home" onclick="closeMobileMenu()" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-[#0B5C6B] text-white">Home</a>
+          <a href="#about" data-section="about" data-i18n="nav_about" onclick="closeMobileMenu()" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-[#EEF5F8] text-[#3B5561]">About Us</a>
+          <a href="#programs" data-section="programs" data-i18n="nav_programs_short" onclick="closeMobileMenu()" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-[#EEF5F8] text-[#3B5561]">Programs</a>
+          <a href="#membership" data-section="membership" data-i18n="nav_membership" onclick="closeMobileMenu()" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-[#EEF5F8] text-[#3B5561]">Membership</a>
+          <a href="#booking" data-section="booking" data-i18n="nav_booking" onclick="closeMobileMenu()" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-[#EEF5F8] text-[#3B5561]">Booking</a>
+          <a href="#gallery" data-section="gallery" data-i18n="nav_gallery" onclick="closeMobileMenu()" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-[#EEF5F8] text-[#3B5561]">Gallery</a>
+          <a href="#contact" data-section="contact" data-i18n="nav_contact" onclick="closeMobileMenu()" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-[#EEF5F8] text-[#3B5561]">Contact</a>
+          <a href="#faq" data-section="faq" data-i18n="nav_faq" onclick="closeMobileMenu()" class="mobile-nav-link px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-[#EEF5F8] text-[#3B5561]">FAQ</a>
+        </div>
+        <div class="flex items-center justify-between bg-[#EEF5F8] px-4 py-2.5 rounded-xl border border-[#DCE6EC]">
+          <span data-i18n="mobile_lang_label" class="text-xs font-bold text-[#3B5561]">Select Language / ভাষা নির্বাচন করুন:</span>
+          <div class="inline-flex items-center bg-white p-1 rounded-full border border-[#DCE6EC]">
+            <button type="button" onclick="setLanguage('en')" data-lang-btn="en" class="lang-toggle-btn px-3 py-1 rounded-full text-xs font-extrabold bg-[#0B5C6B] text-white transition">English</button>
+            <button type="button" onclick="setLanguage('bn')" data-lang-btn="bn" class="lang-toggle-btn px-3 py-1 rounded-full text-xs font-bold text-[#3B5561] transition font-bn">বাংলা</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== SINGLE-PAGE SCROLLABLE CONTENT ==================== -->
+  <main class="flex-grow">
+
+    <!-- ============================================================
+         SECTION 1: #home (HERO BANNER & BUSINESS INTRODUCTION)
+         ============================================================ -->
+    <section id="home" class="aqua-hero-bg bg-abyss-band text-[#F1F8FA] relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative z-10">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center space-x-2 bg-[#072833]/75 backdrop-blur-md border border-[#5EEAD4]/30 rounded-full px-4 py-1.5 text-xs sm:text-sm font-medium text-[#5EEAD4] mb-6">
+            <span class="w-2 h-2 rounded-full bg-[#5EEAD4] animate-pulse"></span>
+            <span data-i18n="hero_badge">Dhaka's First Temperature-Controlled UV & Ozone Aquatic Club</span>
+          </div>
+          <h1 data-i18n-html="hero_title" class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6 text-[#F1F8FA]">
+            Dive Into Crystal-Clear <span class="text-[#38BDF8]">Excellence</span> Every Day.
+          </h1>
+          <p data-i18n-html="hero_subtitle" class="text-base sm:text-lg text-[#D5E6EC] leading-relaxed mb-8 max-w-2xl">
+            Welcome to <strong>AquaWave Swimming Club & Arena</strong> in Banani, Dhaka. Whether you are learning your first stroke, training for national championships, or unwinding in heated mineral-pure water, we deliver unmatched safety, hygiene, and comfort.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#booking" class="bg-[#0E7490] hover:bg-[#0B5C6B] text-white font-bold px-7 py-4 rounded-2xl shadow-lg border border-[#38BDF8]/30 transition inline-flex items-center">
+              <i class="fa-regular fa-calendar-plus mr-2.5 text-lg text-[#5EEAD4]"></i>
+              <span data-i18n="hero_cta_primary">Book a Session</span>
+            </a>
+            <a href="#programs" class="bg-[#072833]/70 hover:bg-[#0E3B4A] backdrop-blur-md border border-white/20 text-[#F1F8FA] font-semibold px-7 py-4 rounded-2xl transition inline-flex items-center">
+              <i class="fa-solid fa-water mr-2.5 text-[#38BDF8]"></i>
+              <span data-i18n="hero_cta_secondary">Explore Programs</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Stats Bar -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-14 pt-10 border-t border-white/15">
+          <div class="bg-[#072833]/75 backdrop-blur-md rounded-2xl p-5 border border-white/10">
+            <div data-i18n="stat1_val" class="text-2xl sm:text-3xl font-extrabold text-[#38BDF8]">50m & 25m</div>
+            <div data-i18n="stat1_lbl" class="text-xs sm:text-sm text-[#C3DAE3] mt-1">Olympic & Heated Pools</div>
+          </div>
+          <div class="bg-[#072833]/75 backdrop-blur-md rounded-2xl p-5 border border-white/10">
+            <div data-i18n="stat2_val" class="text-2xl sm:text-3xl font-extrabold text-[#5EEAD4]">18+</div>
+            <div data-i18n="stat2_lbl" class="text-xs sm:text-sm text-[#C3DAE3] mt-1">FINA-Certified Coaches</div>
+          </div>
+          <div class="bg-[#072833]/75 backdrop-blur-md rounded-2xl p-5 border border-white/10">
+            <div data-i18n="stat3_val" class="text-2xl sm:text-3xl font-extrabold text-[#F59E0B]">28.5°C</div>
+            <div data-i18n="stat3_lbl" class="text-xs sm:text-sm text-[#C3DAE3] mt-1">Temperature Controlled</div>
+          </div>
+          <div class="bg-[#072833]/75 backdrop-blur-md rounded-2xl p-5 border border-white/10">
+            <div data-i18n="stat4_val" class="text-2xl sm:text-3xl font-extrabold text-[#5EEAD4]">100%</div>
+            <div data-i18n="stat4_lbl" class="text-xs sm:text-sm text-[#C3DAE3] mt-1">Hygienic UV + Ozone Filtration</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2: #about (ABOUT US - POOL INFORMATION)
+         ============================================================ -->
+    <section id="about" class="py-20 bg-white reveal-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+        <div class="text-center max-w-2xl mx-auto">
+          <span data-i18n="about_eyebrow" class="text-xs font-extrabold uppercase tracking-widest text-[#0E7490]">About AquaWave</span>
+          <h2 data-i18n="about_title" class="text-3xl sm:text-4xl font-extrabold text-[#0F2933] mt-2">World-Class Pool Specifications & Safety</h2>
+          <p data-i18n="about_desc" class="text-[#3B5561] mt-3 text-sm sm:text-base">Engineered to international FINA standards with German UV-C & Ozone water sanitation, gentle low-chlorine chemistry, and dedicated lifeguard supervision.</p>
+        </div>
+
+        <!-- Pool Image & Live Telemetry + 3 Pool Zones -->
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-6 rounded-3xl overflow-hidden shadow-lg border border-[#DCE6EC] img-fallback h-80 sm:h-[420px] relative">
+            <img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?auto=format&fit=crop&w=1200&q=80"
+                 alt="AquaWave 50m Olympic Lap Pool"
+                 onerror="this.style.display='none'"
+                 class="w-full h-full object-cover" />
+            <div class="bg-abyss-band absolute bottom-4 left-4 right-4 bg-[#072833]/92 backdrop-blur-md text-[#F1F8FA] p-4 rounded-2xl flex flex-wrap justify-between items-center gap-2 border border-white/15">
+              <div>
+                <div data-i18n="telemetry_tag" class="text-[11px] text-[#5EEAD4] font-bold uppercase tracking-wider">Live Water Quality Telemetry</div>
+                <div data-i18n="telemetry_val" class="font-bold text-xs sm:text-sm mt-0.5 text-[#F1F8FA]">pH Level: 7.4 • Temp: 28.5°C • Purity: 99.9% UV</div>
+              </div>
+              <span data-i18n="telemetry_status" class="px-3 py-1 rounded-full bg-[#0F766E]/30 text-[#5EEAD4] border border-[#5EEAD4]/30 text-xs font-bold">Optimal</span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 space-y-5">
+            <div class="bg-[#EEF5F8] p-5 rounded-2xl border border-[#DCE6EC] hover:border-[#0E7490]/50 transition">
+              <div class="flex items-center justify-between">
+                <span data-i18n="zone1_tag" class="text-xs font-extrabold uppercase tracking-wider text-[#0B5C6B]">Zone 01 • Main Arena</span>
+                <span data-i18n="zone1_meta" class="text-xs font-bold text-[#0F2933] bg-white px-2.5 py-0.5 rounded-full border border-[#DCE6EC]">Depth: 1.4m – 2.2m</span>
+              </div>
+              <h3 data-i18n="zone1_title" class="text-lg font-extrabold text-[#0F2933] mt-2">50m Olympic 8-Lane Lap Pool</h3>
+              <p data-i18n="zone1_desc" class="text-xs sm:text-sm text-[#3B5561] mt-1">Anti-wave racing lane dividers, underwater LED pacing lights, and strict lane discipline for fitness & competitive swimmers.</p>
+            </div>
+
+            <div class="bg-[#E6F1F5] p-5 rounded-2xl border border-[#DCE6EC] hover:border-[#0E7490]/50 transition">
+              <div class="flex items-center justify-between">
+                <span data-i18n="zone2_tag" class="text-xs font-extrabold uppercase tracking-wider text-[#0B5C6B]">Zone 02 • Enclosed Indoor</span>
+                <span data-i18n="zone2_meta" class="text-xs font-bold text-[#C25934] bg-white px-2.5 py-0.5 rounded-full border border-[#DCE6EC]">Temp: 29.5°C Heated</span>
+              </div>
+              <h3 data-i18n="zone2_title" class="text-lg font-extrabold text-[#0F2933] mt-2">25m Heated Training & Ladies Pool</h3>
+              <p data-i18n="zone2_desc" class="text-xs sm:text-sm text-[#3B5561] mt-1">Comfortable standing depth (1.0m – 1.3m) with full privacy curtains for Ladies-Only morning batches and adult beginners.</p>
+            </div>
+
+            <div class="bg-[#EEF5F8] p-5 rounded-2xl border border-[#DCE6EC] hover:border-[#0E7490]/50 transition">
+              <div class="flex items-center justify-between">
+                <span data-i18n="zone3_tag" class="text-xs font-extrabold uppercase tracking-wider text-[#0B5C6B]">Zone 03 • Toddler Safe</span>
+                <span data-i18n="zone3_meta" class="text-xs font-bold text-[#0F766E] bg-white px-2.5 py-0.5 rounded-full border border-[#DCE6EC]">Depth: 0.6m – 0.8m</span>
+              </div>
+              <h3 data-i18n="zone3_title" class="text-lg font-extrabold text-[#0F2933] mt-2">Kids Splash & Confidence Zone</h3>
+              <p data-i18n="zone3_desc" class="text-xs sm:text-sm text-[#3B5561] mt-1">Anti-slip soft deck flooring, warm mineral-balanced water, and continuous 1:4 instructor supervision for young learners.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facility Highlights Bar -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
+          <div class="aqua-card p-6 rounded-3xl transition">
+            <div class="w-10 h-10 rounded-xl bg-[#EEF5F8] text-[#0E7490] flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-microscope"></i>
+            </div>
+            <h4 data-i18n="feat1_title" class="font-bold text-[#0F2933] mb-1">UV-C & Ozone Sanitation</h4>
+            <p data-i18n="feat1_desc" class="text-xs text-[#3B5561] leading-relaxed">80% less chlorine than standard pools—gentle on sensitive skin, hair, and eyes.</p>
+          </div>
+          <div class="aqua-card p-6 rounded-3xl transition">
+            <div class="w-10 h-10 rounded-xl bg-[#EEF5F8] text-[#0F766E] flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-life-ring"></i>
+            </div>
+            <h4 data-i18n="feat2_title" class="font-bold text-[#0F2933] mb-1">Certified Lifeguard Watch</h4>
+            <p data-i18n="feat2_desc" class="text-xs text-[#3B5561] leading-relaxed">Red Cross certified lifeguards on active deck duty during all operating hours (6 AM – 10:30 PM).</p>
+          </div>
+          <div class="aqua-card p-6 rounded-3xl transition">
+            <div class="w-10 h-10 rounded-xl bg-[#FFF4EF] text-[#C25934] flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-shower"></i>
+            </div>
+            <h4 data-i18n="feat3_title" class="font-bold text-[#0F2933] mb-1">RFID Smart Locker Suites</h4>
+            <p data-i18n="feat3_desc" class="text-xs text-[#3B5561] leading-relaxed">Private hot rain showers, swimsuit dryers, hair dryers, sauna, and steam rooms.</p>
+          </div>
+          <div class="aqua-card p-6 rounded-3xl transition">
+            <div class="w-10 h-10 rounded-xl bg-[#EEF5F8] text-[#0B5C6B] flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-mug-hot"></i>
+            </div>
+            <h4 data-i18n="feat4_title" class="font-bold text-[#0F2933] mb-1">Parents' Viewing Lounge</h4>
+            <p data-i18n="feat4_desc" class="text-xs text-[#3B5561] leading-relaxed">Air-conditioned glass gallery with live pool view, fresh juice bar, and high-speed Wi-Fi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3: #programs (SWIMMING PROGRAMS - COURSES & TRAINING)
+         ============================================================ -->
+    <section id="programs" class="py-20 bg-[#EEF5F8] border-y border-[#DCE6EC] reveal-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div>
+            <span data-i18n="prog_eyebrow" class="text-xs font-extrabold uppercase tracking-widest text-[#0E7490]">Academy & Coaching</span>
+            <h2 data-i18n="prog_title" class="text-3xl sm:text-4xl font-extrabold text-[#0F2933] mt-1">Swimming Programs & Courses</h2>
+            <p data-i18n="prog_desc" class="text-[#3B5561] mt-2 text-sm sm:text-base max-w-2xl">Structured training modules led by FINA-certified male & female coaches. Click "Select & Book" on any course to reserve your spot below.</p>
+          </div>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="flex flex-wrap gap-2 mb-10" id="program-filters">
+          <button onclick="filterPrograms('all')" data-filter="all" data-i18n="filter_all" class="prog-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold bg-[#0B5C6B] text-white shadow-sm transition">All Programs</button>
+          <button onclick="filterPrograms('kids')" data-filter="kids" data-i18n="filter_kids" class="prog-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold bg-white text-[#3B5561] border border-[#DCE6EC] hover:border-[#0E7490] hover:text-[#0F2933] transition">Kids & Toddlers</button>
+          <button onclick="filterPrograms('adult')" data-filter="adult" data-i18n="filter_adult" class="prog-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold bg-white text-[#3B5561] border border-[#DCE6EC] hover:border-[#0E7490] hover:text-[#0F2933] transition">Adult Beginners</button>
+          <button onclick="filterPrograms('ladies')" data-filter="ladies" data-i18n="filter_ladies" class="prog-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold bg-white text-[#3B5561] border border-[#DCE6EC] hover:border-[#0E7490] hover:text-[#0F2933] transition">Ladies-Only Batch</button>
+          <button onclick="filterPrograms('competitive')" data-filter="competitive" data-i18n="filter_comp" class="prog-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold bg-white text-[#3B5561] border border-[#DCE6EC] hover:border-[#0E7490] hover:text-[#0F2933] transition">Competitive & Lap</button>
+          <button onclick="filterPrograms('fitness')" data-filter="fitness" data-i18n="filter_fit" class="prog-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold bg-white text-[#3B5561] border border-[#DCE6EC] hover:border-[#0E7490] hover:text-[#0F2933] transition">Aqua Fitness</button>
+        </div>
+
+        <!-- Programs Grid (Populated via JS) -->
+        <div id="programs-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4: #membership (MEMBERSHIP - PACKAGES & PRICING)
+         ============================================================ -->
+    <section id="membership" class="py-20 bg-white reveal-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <span data-i18n="mem_eyebrow" class="text-xs font-extrabold uppercase tracking-widest text-[#0E7490]">Flexible Packages</span>
+          <h2 data-i18n="mem_title" class="text-3xl sm:text-4xl font-extrabold text-[#0F2933] mt-1">Membership Plans & Pricing</h2>
+          <p data-i18n="mem_desc" class="text-[#3B5561] mt-2 text-sm sm:text-base">Transparent pricing in BDT (৳) with zero hidden fees. Toggle between Monthly and Quarterly billing to save up to 15%.</p>
+
+          <!-- Billing Cycle Toggle -->
+          <div class="inline-flex items-center bg-[#EEF5F8] p-1.5 rounded-2xl mt-6 border border-[#DCE6EC]">
+            <button id="bill-monthly-btn" onclick="setBillingCycle('monthly')" data-i18n="bill_monthly" class="px-5 py-2 rounded-xl text-xs sm:text-sm font-extrabold bg-[#0B5C6B] text-white shadow-sm transition">
+              Monthly Billing
+            </button>
+            <button id="bill-quarterly-btn" onclick="setBillingCycle('quarterly')" class="px-5 py-2 rounded-xl text-xs sm:text-sm font-bold text-[#3B5561] hover:text-[#0F2933] transition">
+              <span data-i18n="bill_quarterly">Quarterly Billing</span>
+              <span data-i18n="bill_save" class="ml-1 text-[11px] text-[#C25934] font-extrabold">(Save 15%)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3-Tier Pricing Cards -->
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+          <!-- Tier 1: Daily / Drop-In Pass -->
+          <div class="bg-[#F7FAFC] rounded-3xl p-8 border border-[#DCE6EC] flex flex-col justify-between" style="box-shadow: var(--shadow-card);">
+            <div>
+              <span data-i18n="plan1_badge" class="inline-block px-3 py-1 rounded-full bg-white border border-[#DCE6EC] text-[#3B5561] text-xs font-bold mb-4">Pay As You Swim</span>
+              <h3 data-i18n="plan1_title" class="text-2xl font-extrabold text-[#0F2933]">Daily / Drop-in Pass</h3>
+              <p data-i18n="plan1_sub" class="text-xs text-[#627D8A] mt-1">Perfect for single visits, guests & weekend relaxation</p>
+              <div class="my-6">
+                <span data-i18n="plan1_price" class="text-4xl font-extrabold text-[#0F2933]">৳1,200</span>
+                <span data-i18n="plan1_unit" class="text-xs text-[#627D8A] font-medium"> / 90 mins session</span>
+              </div>
+              <ul class="space-y-3.5 text-sm text-[#3B5561] border-t border-[#DCE6EC] pt-6">
+                <li><i class="fa-solid fa-check text-[#0F766E] mr-2.5"></i><span data-i18n="plan1_f1">50m Olympic or 25m Heated Pool</span></li>
+                <li><i class="fa-solid fa-check text-[#0F766E] mr-2.5"></i><span data-i18n="plan1_f2">RFID Smart Locker & Hot Rain Shower</span></li>
+                <li><i class="fa-solid fa-check text-[#0F766E] mr-2.5"></i><span data-i18n="plan1_f3">Complimentary Sanitized Fresh Towel</span></li>
+                <li class="text-[#627D8A]/70"><i class="fa-solid fa-xmark mr-2.5"></i><span data-i18n="plan1_f4">Sauna, Steam & Guest Passes</span></li>
+              </ul>
+            </div>
+            <button onclick="chooseMembershipPlan(0)" data-i18n="choose_plan_btn" class="mt-8 w-full py-4 rounded-2xl border-2 border-[#0B5C6B] text-[#0B5C6B] hover:bg-[#0B5C6B] hover:text-white font-extrabold text-sm transition">
+              Choose Plan
+            </button>
+          </div>
+
+          <!-- Tier 2: Monthly Pro Membership (Most Popular) -->
+          <div class="bg-abyss-band bg-[#072833] text-[#F1F8FA] rounded-3xl p-8 shadow-2xl border-2 border-[#38BDF8] relative flex flex-col justify-between">
+            <div data-i18n="most_popular" class="absolute -top-3.5 right-6 bg-[#C25934] text-white text-xs font-extrabold px-4 py-1 rounded-full uppercase tracking-wide shadow">
+              Most Popular
+            </div>
+            <div>
+              <span data-i18n="plan2_badge" class="inline-block px-3 py-1 rounded-full bg-[#0E3B4A] border border-[#5EEAD4]/30 text-[#5EEAD4] text-xs font-bold mb-4">Unlimited Lap Swimmer</span>
+              <h3 data-i18n="plan2_title" class="text-2xl font-extrabold text-[#F1F8FA]">Monthly Pro Membership</h3>
+              <p data-i18n="plan2_sub" class="text-xs text-[#B8D2DC] mt-1" id="pro-plan-sub">Unlimited daily access billed monthly</p>
+              <div class="my-6">
+                <span class="text-4xl font-extrabold text-[#38BDF8]" id="pro-plan-price">৳7,500</span>
+                <span class="text-xs text-[#B8D2DC]" id="pro-plan-unit"> / month</span>
+              </div>
+              <ul class="space-y-3.5 text-sm text-[#E2F0F5] border-t border-white/15 pt-6">
+                <li><i class="fa-solid fa-check text-[#5EEAD4] mr-2.5"></i><span data-i18n="plan2_f1">Unlimited Daily Pool & Lap Access</span></li>
+                <li><i class="fa-solid fa-check text-[#5EEAD4] mr-2.5"></i><span data-i18n="plan2_f2">Full Sauna & Steam Room Access</span></li>
+                <li><i class="fa-solid fa-check text-[#5EEAD4] mr-2.5"></i><span data-i18n="plan2_f3">1 Free Stroke Assessment Session</span></li>
+                <li><i class="fa-solid fa-check text-[#5EEAD4] mr-2.5"></i><span data-i18n="plan2_f4">2 Free Guest Passes Every Month</span></li>
+              </ul>
+            </div>
+            <button id="pro-plan-btn" onclick="chooseMembershipPlan(1)" data-i18n="choose_plan_btn" class="mt-8 w-full py-4 rounded-2xl bg-[#0E7490] hover:bg-[#0B5C6B] text-white font-extrabold text-sm shadow-md border border-[#38BDF8]/30 transition">
+              Choose Plan
+            </button>
+          </div>
+
+          <!-- Tier 3: Quarterly / Family VIP -->
+          <div class="bg-[#F7FAFC] rounded-3xl p-8 border border-[#DCE6EC] flex flex-col justify-between" style="box-shadow: var(--shadow-card);">
+            <div>
+              <span data-i18n="plan3_badge" class="inline-block px-3 py-1 rounded-full bg-[#FFF4EF] border border-[#FFE4D8] text-[#C25934] text-xs font-bold mb-4">Up to 4 Family Members</span>
+              <h3 data-i18n="plan3_title" class="text-2xl font-extrabold text-[#0F2933]">Quarterly / Family VIP</h3>
+              <p data-i18n="plan3_sub" class="text-xs text-[#627D8A] mt-1" id="vip-plan-sub">2 Adults + 2 Kids (Under 16 Years)</p>
+              <div class="my-6">
+                <span class="text-4xl font-extrabold text-[#0F2933]" id="vip-plan-price">৳18,500</span>
+                <span class="text-xs text-[#627D8A]" id="vip-plan-unit"> / month (Family Pack)</span>
+              </div>
+              <ul class="space-y-3.5 text-sm text-[#3B5561] border-t border-[#DCE6EC] pt-6">
+                <li><i class="fa-solid fa-check text-[#0F766E] mr-2.5"></i><span data-i18n="plan3_f1">Unlimited Access for 4 Family Members</span></li>
+                <li><i class="fa-solid fa-check text-[#0F766E] mr-2.5"></i><span data-i18n="plan3_f2">20% Off All Kids Swimming Courses</span></li>
+                <li><i class="fa-solid fa-check text-[#0F766E] mr-2.5"></i><span data-i18n="plan3_f3">Dedicated Permanent Locker Cabinet</span></li>
+                <li><i class="fa-solid fa-check text-[#0F766E] mr-2.5"></i><span data-i18n="plan3_f4">Free Valet Parking & Cafe 15% Off</span></li>
+              </ul>
+            </div>
+            <button id="vip-plan-btn" onclick="chooseMembershipPlan(2)" data-i18n="choose_plan_btn" class="mt-8 w-full py-4 rounded-2xl border-2 border-[#0B5C6B] text-[#0B5C6B] hover:bg-[#0B5C6B] hover:text-white font-extrabold text-sm transition">
+              Choose Plan
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 5: #booking (ONLINE RESERVATION)
+         ============================================================ -->
+    <section id="booking" class="py-20 bg-abyss-band bg-[#072833] text-[#F1F8FA] relative overflow-hidden reveal-section">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span data-i18n="book_eyebrow" class="text-xs font-extrabold uppercase tracking-widest text-[#5EEAD4]">Instant Reservation</span>
+          <h2 data-i18n="book_title" class="text-3xl sm:text-4xl font-extrabold mt-1 text-[#F1F8FA]">Book Your Swim Slot or Course</h2>
+          <p data-i18n="book_desc" class="text-[#C3DAE3] mt-2 text-sm sm:text-base">Select a program, membership plan, or hourly pool session below to generate your instant Booking Confirmation ID.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+          <!-- Interactive Reservation Form -->
+          <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="lg:col-span-8 bg-white text-[#0F2933] rounded-3xl p-7 sm:p-9 shadow-2xl border border-[#DCE6EC] space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label data-i18n="lbl_service_type" class="block text-xs font-bold uppercase tracking-wider text-[#3B5561] mb-2">Service Type *</label>
+                <select id="book-service-type" onchange="populateProgramDropdown()" required class="aqua-input w-full rounded-xl px-4 py-3 text-sm font-semibold">
+                  <option value="slot" data-i18n="opt_type_slot">Hourly Pool Slot / Day Pass</option>
+                  <option value="program" data-i18n="opt_type_program">Swimming Program / Course</option>
+                  <option value="membership" data-i18n="opt_type_membership">Membership Plan</option>
+                </select>
+              </div>
+
+              <div>
+                <label data-i18n="lbl_package" class="block text-xs font-bold uppercase tracking-wider text-[#3B5561] mb-2">Program / Package *</label>
+                <select id="book-item-select" required class="aqua-input w-full rounded-xl px-4 py-3 text-sm font-semibold">
+                  <!-- Auto-populated via JS -->
+                </select>
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-5">
+              <div>
+                <label data-i18n="lbl_date" class="block text-xs font-bold uppercase tracking-wider text-[#3B5561] mb-2">Preferred Date *</label>
+                <input type="date" id="book-date" required class="aqua-input w-full rounded-xl px-4 py-3 text-sm font-medium" />
+              </div>
+
+              <div>
+                <label data-i18n="lbl_slot" class="block text-xs font-bold uppercase tracking-wider text-[#3B5561] mb-2">Time Slot *</label>
+                <select id="book-slot" required class="aqua-input w-full rounded-xl px-4 py-3 text-sm font-medium">
+                  <option value="0" data-i18n="slot_morning">Morning (6:30 AM – 9:30 AM)</option>
+                  <option value="1" data-i18n="slot_ladies">Ladies Hour (10:00 AM – 1:00 PM)</option>
+                  <option value="2" data-i18n="slot_afternoon">Afternoon (3:30 PM – 6:30 PM)</option>
+                  <option value="3" data-i18n="slot_evening">Evening (7:00 PM – 10:00 PM)</option>
+                </select>
+              </div>
+
+              <div>
+                <label data-i18n="lbl_guests" class="block text-xs font-bold uppercase tracking-wider text-[#3B5561] mb-2">Guest Count *</label>
+                <select id="book-guests" class="aqua-input w-full rounded-xl px-4 py-3 text-sm font-medium">
+                  <option value="0" data-i18n="guest_1">1 Swimmer</option>
+                  <option value="1" data-i18n="guest_2">2 Swimmers</option>
+                  <option value="2" data-i18n="guest_3">3 Swimmers</option>
+                  <option value="3" data-i18n="guest_4">4+ Family Group</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label data-i18n="lbl_fullname" class="block text-xs font-bold uppercase tracking-wider text-[#3B5561] mb-2">Full Name *</label>
+                <input type="text" id="book-name" required data-i18n-placeholder="ph_fullname" placeholder="e.g. Tanvir Ahmed" class="aqua-input w-full rounded-xl px-4 py-3 text-sm" />
+              </div>
+
+              <div>
+                <label data-i18n="lbl_phone" class="block text-xs font-bold uppercase tracking-wider text-[#3B5561] mb-2">Phone / WhatsApp Number *</label>
+                <input type="tel" id="book-phone" required data-i18n-placeholder="ph_phone" placeholder="+880 17XX-XXXXXX" class="aqua-input w-full rounded-xl px-4 py-3 text-sm" />
+              </div>
+            </div>
+
+            <button type="submit" class="w-full bg-[#0B5C6B] hover:bg-[#084754] text-white font-extrabold py-4 rounded-2xl shadow-lg transition flex items-center justify-center text-base">
+              <i class="fa-solid fa-check-circle mr-2 text-[#5EEAD4]"></i>
+              <span data-i18n="btn_confirm_booking">Confirm Online Reservation</span>
+            </button>
+          </form>
+
+          <!-- Booking Info & Guidelines -->
+          <div class="lg:col-span-4 space-y-5">
+            <div class="bg-[#0E3B4A]/90 border border-white/15 rounded-3xl p-6">
+              <h3 class="font-bold text-lg text-[#5EEAD4] mb-3">
+                <i class="fa-solid fa-shield-halved mr-2"></i>
+                <span data-i18n="rules_title">Pool Check-In Rules</span>
+              </h3>
+              <ul class="text-xs text-[#D5E6EC] space-y-3 leading-relaxed">
+                <li data-i18n="rule_1">• Proper synthetic swimwear (lycra/nylon) & swim caps are mandatory for hygiene.</li>
+                <li data-i18n="rule_2">• Pay conveniently at reception via bKash, Nagad, Visa/Mastercard, or Cash.</li>
+                <li data-i18n="rule_3">• Free rescheduling up to 4 hours prior to your booked session.</li>
+                <li data-i18n="rule_4">• Complimentary fresh towels & digital lockers included with every pass.</li>
+              </ul>
+            </div>
+
+            <div class="bg-[#C25934]/20 border border-[#F59E0B]/40 rounded-3xl p-6">
+              <div data-i18n="corp_title" class="text-xs font-extrabold uppercase text-[#FBBF24]">Group or Corporate Events?</div>
+              <p data-i18n="corp_desc" class="text-xs text-[#E2F0F5] mt-1.5 mb-4">Need private lane rentals, school swimming galas, or pool-side corporate wellness days?</p>
+              <a href="https://wa.me/8801711000000" target="_blank" rel="noopener" class="w-full py-3 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white font-bold text-xs flex items-center justify-center transition">
+                <i class="fa-brands fa-whatsapp text-base mr-2"></i>
+                <span data-i18n="btn_whatsapp">Instant WhatsApp Desk</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 6: #gallery (PHOTOS & VIDEOS)
+         ============================================================ -->
+    <section id="gallery" class="py-20 bg-white reveal-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div>
+            <span data-i18n="gal_eyebrow" class="text-xs font-extrabold uppercase tracking-widest text-[#0E7490]">Visual Tour</span>
+            <h2 data-i18n="gal_title" class="text-3xl sm:text-4xl font-extrabold text-[#0F2933] mt-1">Facility Photos & Video Highlights</h2>
+            <p data-i18n="gal_desc" class="text-[#3B5561] mt-2 text-sm sm:text-base">Click any photo or video highlight to open full-screen preview.</p>
+          </div>
+
+          <!-- Filter Buttons -->
+          <div class="flex flex-wrap gap-2">
+            <button onclick="filterGallery('all')" data-gfilter="all" data-i18n="gfilter_all" class="gal-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#0B5C6B] text-white transition">All</button>
+            <button onclick="filterGallery('pools')" data-gfilter="pools" data-i18n="gfilter_pools" class="gal-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#EEF5F8] text-[#3B5561] border border-[#DCE6EC] hover:border-[#0E7490] transition">Pools</button>
+            <button onclick="filterGallery('training')" data-gfilter="training" data-i18n="gfilter_training" class="gal-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#EEF5F8] text-[#3B5561] border border-[#DCE6EC] hover:border-[#0E7490] transition">Training</button>
+            <button onclick="filterGallery('facilities')" data-gfilter="facilities" data-i18n="gfilter_facilities" class="gal-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#EEF5F8] text-[#3B5561] border border-[#DCE6EC] hover:border-[#0E7490] transition">Facilities</button>
+            <button onclick="filterGallery('videos')" data-gfilter="videos" data-i18n="gfilter_videos" class="gal-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#EEF5F8] text-[#3B5561] border border-[#DCE6EC] hover:border-[#0E7490] transition">Videos</button>
+          </div>
+        </div>
+
+        <!-- Gallery Grid (Populated via JS) -->
+        <div id="gallery-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 7: #contact (LOCATION & COMMUNICATION)
+         ============================================================ -->
+    <section id="contact" class="py-20 bg-[#E6F1F5] border-y border-[#DCE6EC] reveal-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span data-i18n="con_eyebrow" class="text-xs font-extrabold uppercase tracking-widest text-[#0E7490]">Visit & Connect</span>
+          <h2 data-i18n="con_title" class="text-3xl sm:text-4xl font-extrabold text-[#0F2933] mt-1">Location & Contact</h2>
+          <p data-i18n="con_desc" class="text-[#3B5561] mt-2 text-sm sm:text-base">Located at the heart of Banani, Dhaka with basement valet parking and easy access from Gulshan & Baridhara.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-10">
+          <!-- Left: Contact Info Cards + Stylized Map -->
+          <div class="lg:col-span-6 space-y-6">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="aqua-card p-5 rounded-3xl">
+                <div class="w-10 h-10 rounded-xl bg-[#EEF5F8] text-[#0B5C6B] flex items-center justify-center text-lg mb-3">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <h3 data-i18n="con_card1_title" class="font-bold text-[#0F2933] text-sm">Club Address</h3>
+                <p data-i18n-html="con_card1_desc" class="text-xs text-[#3B5561] mt-1 leading-relaxed">House 42, Road 11, Block H,<br/>Banani Aquatic Complex, Dhaka 1213</p>
+              </div>
+
+              <div class="aqua-card p-5 rounded-3xl">
+                <div class="w-10 h-10 rounded-xl bg-[#EEF5F8] text-[#0E7490] flex items-center justify-center text-lg mb-3">
+                  <i class="fa-regular fa-clock"></i>
+                </div>
+                <h3 data-i18n="con_card2_title" class="font-bold text-[#0F2933] text-sm">Operating Hours</h3>
+                <p data-i18n-html="con_card2_desc" class="text-xs text-[#3B5561] mt-1 leading-relaxed">Sat – Thu: 6:00 AM – 10:30 PM<br/>Friday: 7:00 AM – 10:30 PM</p>
+              </div>
+
+              <div class="aqua-card p-5 rounded-3xl">
+                <div class="w-10 h-10 rounded-xl bg-[#FFF4EF] text-[#C25934] flex items-center justify-center text-lg mb-3">
+                  <i class="fa-solid fa-phone-volume"></i>
+                </div>
+                <h3 data-i18n="con_card3_title" class="font-bold text-[#0F2933] text-sm">Phone & Hotline</h3>
+                <p data-i18n-html="con_card3_desc" class="text-xs text-[#3B5561] mt-1 leading-relaxed">+880 1711-000000<br/>+880 2-9880000</p>
+              </div>
+
+              <div class="aqua-card p-5 rounded-3xl">
+                <div class="w-10 h-10 rounded-xl bg-[#EEF5F8] text-[#0F766E] flex items-center justify-center text-lg mb-3">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <h3 data-i18n="con_card4_title" class="font-bold text-[#0F2933] text-sm">Email Desk</h3>
+                <p class="text-xs text-[#3B5561] mt-1 leading-relaxed">hello@aquawavedhaka.com<br/>academy@aquawavedhaka.com</p>
+              </div>
+            </div>
+
+            <!-- Stylized Interactive Map Card -->
+            <div class="bg-abyss-band bg-[#072833] rounded-3xl p-6 text-[#F1F8FA] shadow-lg border border-[#0E3B4A]">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#0E3B4A] border border-[#5EEAD4]/30 text-[#5EEAD4] text-xs font-bold mb-2">
+                    <i class="fa-solid fa-car mr-1.5"></i>
+                    <span data-i18n="map_badge">Free Basement Valet Parking</span>
+                  </span>
+                  <h3 data-i18n="map_title" class="text-lg font-extrabold text-[#F1F8FA]">Banani Lakefront Aquatic Complex</h3>
+                  <p data-i18n="map_sub" class="text-xs text-[#B8D2DC] mt-0.5">3 mins from Banani Road 11 Bridge • Dhaka</p>
+                </div>
+                <a href="https://maps.google.com/?q=Banani+Road+11+Dhaka" target="_blank" rel="noopener" class="shrink-0 bg-[#0E7490] hover:bg-[#0B5C6B] text-white font-bold text-xs px-4 py-3 rounded-xl border border-[#38BDF8]/30 transition inline-flex items-center">
+                  <i class="fa-solid fa-diamond-turn-right mr-2 text-[#5EEAD4]"></i>
+                  <span data-i18n="btn_gmaps">Google Maps</span>
+                </a>
+              </div>
+              <div class="mt-5 h-44 rounded-2xl bg-[#051D26] border border-white/10 relative flex items-center justify-center overflow-hidden">
+                <div class="absolute inset-0 opacity-25" style="background-image: radial-gradient(#38BDF8 1.5px, transparent 1.5px); background-size: 20px 20px;"></div>
+                <div class="relative z-10 text-center">
+                  <div class="w-11 h-11 rounded-full bg-[#38BDF8]/25 flex items-center justify-center mx-auto animate-bounce">
+                    <div class="w-6 h-6 rounded-full bg-[#38BDF8] text-[#051D26] flex items-center justify-center text-xs shadow-lg">
+                      <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                  </div>
+                  <span data-i18n="map_pin" class="mt-2 inline-block bg-[#0E3B4A] border border-[#38BDF8]/40 px-3.5 py-1 rounded-lg text-xs font-bold text-[#F1F8FA]">
+                    AquaWave Arena • Banani R-11
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Quick Inquiry Form -->
+          <div class="lg:col-span-6 aqua-card rounded-3xl p-7 sm:p-9">
+            <h3 data-i18n="inq_title" class="text-2xl font-extrabold text-[#0F2933]">Send Us a Quick Inquiry</h3>
+            <p data-i18n="inq_desc" class="text-sm text-[#627D8A] mt-1 mb-6">Ask about coaching batches, ladies' timings, or private event bookings.</p>
+
+            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+              <div>
+                <label data-i18n="lbl_inq_name" class="block text-xs font-bold uppercase tracking-wider text-[#3B5561] mb-1.5">Full Name *</label>
+                <input type="text" required data-i18n-placeholder="ph_inq_name" placeholder="Enter your name" class="aqua-input w-full rounded-xl px-4 py-3 text-sm" />
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label data-i18n="lbl_inq_email" class="block text-xs font-bold uppercase tracking-wider text-[#3B5561] mb-1.5">Email *</label>
+                  <input type="email" required placeholder="you@example.com" class="aqua-input w-full rounded-xl px-4 py-3 text-sm" />
+                </div>
+                <div>
+                  <label data-i18n="lbl_inq_phone" class="block text-xs font-bold uppercase tracking-wider text-[#3B5561] mb-1.5">Phone</label>
+                  <input type="tel" data-i18n-placeholder="ph_phone" placeholder="+880 1XXX-XXXXXX" class="aqua-input w-full rounded-xl px-4 py-3 text-sm" />
+                </div>
+              </div>
+
+              <div>
+                <label data-i18n="lbl_inq_msg" class="block text-xs font-bold uppercase tracking-wider text-[#3B5561] mb-1.5">Message *</label>
+                <textarea rows="4" required data-i18n-placeholder="ph_inq_msg" placeholder="Write your question or inquiry here..." class="aqua-input w-full rounded-xl px-4 py-3 text-sm"></textarea>
+              </div>
+
+              <button type="submit" class="w-full bg-[#0B5C6B] hover:bg-[#084754] text-white font-extrabold py-4 rounded-2xl shadow-sm transition flex items-center justify-center">
+                <i class="fa-solid fa-paper-plane mr-2 text-[#5EEAD4]"></i>
+                <span data-i18n="btn_send_msg">Send Message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 8: #faq (COMMON QUESTIONS)
+         ============================================================ -->
+    <section id="faq" class="py-20 bg-white reveal-section">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span data-i18n="faq_eyebrow" class="text-xs font-extrabold uppercase tracking-widest text-[#0E7490]">Help Center</span>
+          <h2 data-i18n="faq_title" class="text-3xl sm:text-4xl font-extrabold text-[#0F2933] mt-1">Frequently Asked Questions</h2>
+          <p data-i18n="faq_desc" class="text-[#3B5561] mt-2 text-sm sm:text-base">Everything you need to know about water hygiene, swimwear dress code, female-only timings, and memberships.</p>
+        </div>
+
+        <div id="faq-container" class="space-y-4"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-[#051D26] text-[#C3DAE3] border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-[#0E7490] text-[#F1F8FA] flex items-center justify-center font-bold border border-[#38BDF8]/30">
+              <i class="fa-solid fa-person-swimming text-lg text-[#5EEAD4]"></i>
+            </div>
+            <span class="font-display font-extrabold text-xl text-[#F1F8FA]">Aqua<span class="text-[#38BDF8]">Wave</span></span>
+          </div>
+          <p data-i18n="footer_about" class="text-xs text-[#9BB4C0] leading-relaxed">
+            Dhaka's premier temperature-controlled swimming club & arena. Committed to water safety, UV hygiene, and aquatic excellence.
+          </p>
+        </div>
+
+        <div>
+          <h4 data-i18n="footer_col1" class="text-[#F1F8FA] font-bold text-sm uppercase tracking-wider mb-4">Sections</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#home" data-i18n="nav_home" class="hover:text-[#5EEAD4] transition">Home</a></li>
+            <li><a href="#about" data-i18n="footer_link_about" class="hover:text-[#5EEAD4] transition">About Pool & Hygiene</a></li>
+            <li><a href="#programs" data-i18n="nav_programs" class="hover:text-[#5EEAD4] transition">Swimming Programs</a></li>
+            <li><a href="#membership" data-i18n="footer_link_mem" class="hover:text-[#5EEAD4] transition">Membership Packages</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 data-i18n="footer_col2" class="text-[#F1F8FA] font-bold text-sm uppercase tracking-wider mb-4">Quick Access</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#booking" data-i18n="footer_link_book" class="hover:text-[#5EEAD4] transition">Online Slot Booking</a></li>
+            <li><a href="#gallery" data-i18n="footer_link_gal" class="hover:text-[#5EEAD4] transition">Photo & Video Gallery</a></li>
+            <li><a href="#contact" data-i18n="footer_link_con" class="hover:text-[#5EEAD4] transition">Location & Contact</a></li>
+            <li><a href="#faq" data-i18n="footer_link_faq" class="hover:text-[#5EEAD4] transition">Common FAQs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 data-i18n="footer_col3" class="text-[#F1F8FA] font-bold text-sm uppercase tracking-wider mb-4">Connect With Us</h4>
+          <p data-i18n="footer_addr" class="text-xs text-[#9BB4C0] mb-3">Road 11, Block H, Banani, Dhaka 1213</p>
+          <div class="flex space-x-3">
+            <a href="#contact" aria-label="Facebook" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#0E7490] hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#gallery" aria-label="Instagram" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#0E7490] hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#gallery" aria-label="YouTube" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#0E7490] hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-[#83A1B0]">
+        <p data-i18n="footer_copy">© 2026 AquaWave Swimming Club & Arena. All rights reserved.</p>
+        <p data-i18n="footer_cert" class="mt-2 sm:mt-0">Water Quality Certified • FINA Standard Facility</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING QUICK BOOK & WHATSAPP BUTTONS ==================== -->
+  <div class="fixed bottom-5 right-5 z-40 flex flex-col items-end space-y-2.5">
+    <a href="https://wa.me/8801711000000" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" class="w-12 h-12 rounded-full bg-[#0F766E] hover:bg-[#115E59] text-white shadow-lg flex items-center justify-center text-xl transition hover:scale-105">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="#booking" class="bg-[#0B5C6B] hover:bg-[#084754] text-white font-bold text-xs px-4 py-3 rounded-full shadow-xl border border-[#5EEAD4]/35 flex items-center space-x-2 transition hover:scale-105">
+      <i class="fa-regular fa-calendar-check text-sm text-[#5EEAD4]"></i>
+      <span data-i18n="quick_book">Quick Book</span>
+    </a>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div id="toast-banner" class="fixed top-24 right-5 z-50 hidden bg-[#072833] text-[#F1F8FA] border border-[#5EEAD4]/40 px-5 py-3.5 rounded-2xl shadow-2xl flex items-center space-x-3 max-w-sm">
+    <i class="fa-solid fa-circle-check text-[#5EEAD4] text-lg"></i>
+    <span id="toast-message" class="text-xs sm:text-sm font-semibold"></span>
+  </div>
+
+  <!-- ==================== BOOKING CONFIRMATION RECEIPT MODAL ==================== -->
+  <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-[#051D26]/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-7 shadow-2xl border border-[#DCE6EC]">
+      <div class="w-14 h-14 rounded-2xl bg-[#CCFBF1] text-[#0F766E] flex items-center justify-center text-2xl mx-auto mb-4">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h3 data-i18n="modal_book_title" class="text-2xl font-extrabold text-center text-[#0F2933]">Booking Confirmed!</h3>
+      <p data-i18n="modal_book_sub" class="text-xs text-center text-[#627D8A] mt-1">Present this e-receipt at the AquaWave reception desk.</p>
+
+      <div class="mt-5 bg-[#F7FAFC] rounded-2xl p-4 border border-[#DCE6EC] space-y-2.5 text-xs">
+        <div class="flex justify-between">
+          <span data-i18n="rcpt_id" class="text-[#627D8A]">Booking ID:</span>
+          <span id="receipt-id" class="font-extrabold text-[#0B5C6B]"></span>
+        </div>
+        <div class="flex justify-between">
+          <span data-i18n="rcpt_name" class="text-[#627D8A]">Swimmer Name:</span>
+          <span id="receipt-name" class="font-bold text-[#0F2933]"></span>
+        </div>
+        <div class="flex justify-between">
+          <span data-i18n="rcpt_type" class="text-[#627D8A]">Service Type:</span>
+          <span id="receipt-type" class="font-bold text-[#0F2933]"></span>
+        </div>
+        <div class="flex justify-between">
+          <span data-i18n="rcpt_item" class="text-[#627D8A]">Selected Item:</span>
+          <span id="receipt-package" class="font-bold text-[#0F2933] text-right max-w-[190px]"></span>
+        </div>
+        <div class="flex justify-between">
+          <span data-i18n="rcpt_dt" class="text-[#627D8A]">Date & Slot:</span>
+          <span id="receipt-datetime" class="font-bold text-[#0F2933] text-right"></span>
+        </div>
+        <div class="flex justify-between">
+          <span data-i18n="rcpt_guests" class="text-[#627D8A]">Guests:</span>
+          <span id="receipt-guests" class="font-bold text-[#0F2933]"></span>
+        </div>
+      </div>
+
+      <button onclick="closeBookingModal()" data-i18n="btn_done_close" class="mt-6 w-full bg-[#0B5C6B] hover:bg-[#084754] text-white font-bold py-3.5 rounded-2xl text-sm transition">
+        Done & Close
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== GALLERY LIGHTBOX MODAL ==================== -->
+  <div id="gallery-modal" class="fixed inset-0 z-50 hidden bg-[#051D26]/90 backdrop-blur-md flex items-center justify-center p-4" onclick="closeGalleryModal()">
+    <div class="bg-[#072833] rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl border border-white/15" onclick="event.stopPropagation()">
+      <div class="flex justify-between items-center px-6 py-4 border-b border-white/10">
+        <div>
+          <span id="lightbox-tag" class="text-[11px] font-bold uppercase tracking-wider text-[#5EEAD4]"></span>
+          <h4 id="lightbox-title" class="text-[#F1F8FA] font-bold text-base"></h4>
+        </div>
+        <button onclick="closeGalleryModal()" aria-label="Close Preview" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="lightbox-body" class="bg-[#051D26] flex items-center justify-center min-h-[300px] sm:min-h-[420px]"></div>
+    </div>
+  </div>
+
+  <!-- ==================== BILINGUAL DICTIONARY & APPLICATION LOGIC ==================== -->
+  <script>
+    // Global State
+    let currentLang = localStorage.getItem('aquawave_lang') || 'en';
+    let currentProgramFilter = 'all';
+    let currentGalleryFilter = 'all';
+    let currentBillingCycle = 'monthly';
+
+    // Complete EN / BN Translation Dictionary
+    const i18n = {
+      en: {
+        page_title: "AquaWave Swimming Club & Arena | Dhaka's Premier Aquatic Center",
+        top_address: "Road 11, Block H, Banani Aquatic Complex, Dhaka 1213",
+        top_temp: "Water Temp: 28.5°C (UV-C & Ozone Treated)",
+        top_hours: "Daily: 6:00 AM – 10:30 PM",
+        top_phone: "+880 1711-000000",
+        brand_sub: "Swimming Club & Arena",
+        nav_home: "Home",
+        nav_about: "About Us",
+        nav_programs: "Swimming Programs",
+        nav_programs_short: "Programs",
+        nav_membership: "Membership",
+        nav_booking: "Booking",
+        nav_gallery: "Gallery",
+        nav_contact: "Contact",
+        nav_faq: "FAQ",
+        nav_book_now: "Book Now",
+        mobile_lang_label: "Select Language / ভাষা নির্বাচন করুন:",
+
+        hero_badge: "Dhaka's First Temperature-Controlled UV & Ozone Aquatic Club",
+        hero_title: 'Dive Into Crystal-Clear <span class="text-[#38BDF8]">Excellence</span> Every Day.',
+        hero_subtitle: 'Welcome to <strong>AquaWave Swimming Club & Arena</strong> in Banani, Dhaka. Whether you are learning your first stroke, training for national championships, or unwinding in heated mineral-pure water, we deliver unmatched safety, hygiene, and comfort.',
+        hero_cta_primary: "Book a Session",
+        hero_cta_secondary: "Explore Programs",
+        stat1_val: "50m & 25m",
+        stat1_lbl: "Olympic & Heated Pools",
+        stat2_val: "18+",
+        stat2_lbl: "FINA-Certified Coaches",
+        stat3_val: "28.5°C",
+        stat3_lbl: "Temperature Controlled",
+        stat4_val: "100%",
+        stat4_lbl: "Hygienic UV + Ozone Filtration",
+
+        about_eyebrow: "About AquaWave",
+        about_title: "World-Class Pool Specifications & Safety",
+        about_desc: "Engineered to international FINA standards with German UV-C & Ozone water sanitation, gentle low-chlorine chemistry, and dedicated lifeguard supervision.",
+        telemetry_tag: "Live Water Quality Telemetry",
+        telemetry_val: "pH Level: 7.4 • Temp: 28.5°C • Purity: 99.9% UV",
+        telemetry_status: "Optimal",
+        zone1_tag: "Zone 01 • Main Arena",
+        zone1_meta: "Depth: 1.4m – 2.2m",
+        zone1_title: "50m Olympic 8-Lane Lap Pool",
+        zone1_desc: "Anti-wave racing lane dividers, underwater LED pacing lights, and strict lane discipline for fitness & competitive swimmers.",
+        zone2_tag: "Zone 02 • Enclosed Indoor",
+        zone2_meta: "Temp: 29.5°C Heated",
+        zone2_title: "25m Heated Training & Ladies Pool",
+        zone2_desc: "Comfortable standing depth (1.0m – 1.3m) with full privacy curtains for Ladies-Only morning batches and adult beginners.",
+        zone3_tag: "Zone 03 • Toddler Safe",
+        zone3_meta: "Depth: 0.6m – 0.8m",
+        zone3_title: "Kids Splash & Confidence Zone",
+        zone3_desc: "Anti-slip soft deck flooring, warm mineral-balanced water, and continuous 1:4 instructor supervision for young learners.",
+        feat1_title: "UV-C & Ozone Sanitation",
+        feat1_desc: "80% less chlorine than standard pools—gentle on sensitive skin, hair, and eyes.",
+        feat2_title: "Certified Lifeguard Watch",
+        feat2_desc: "Red Cross certified lifeguards on active deck duty during all operating hours (6 AM – 10:30 PM).",
+        feat3_title: "RFID Smart Locker Suites",
+        feat3_desc: "Private hot rain showers, swimsuit dryers, hair dryers, sauna, and steam rooms.",
+        feat4_title: "Parents' Viewing Lounge",
+        feat4_desc: "Air-conditioned glass gallery with live pool view, fresh juice bar, and high-speed Wi-Fi.",
+
+        prog_eyebrow: "Academy & Coaching",
+        prog_title: "Swimming Programs & Courses",
+        prog_desc: 'Structured training modules led by FINA-certified male & female coaches. Click "Select & Book" on any course to reserve your spot below.',
+        filter_all: "All Programs",
+        filter_kids: "Kids & Toddlers",
+        filter_adult: "Adult Beginners",
+        filter_ladies: "Ladies-Only Batch",
+        filter_comp: "Competitive & Lap",
+        filter_fit: "Aqua Fitness",
+        card_duration: "Duration:",
+        card_schedule: "Schedule:",
+        card_fee: "Fee:",
+        card_select_btn: "Select & Book",
+
+        mem_eyebrow: "Flexible Packages",
+        mem_title: "Membership Plans & Pricing",
+        mem_desc: "Transparent pricing in BDT (৳) with zero hidden fees. Toggle between Monthly and Quarterly billing to save up to 15%.",
+        bill_monthly: "Monthly Billing",
+        bill_quarterly: "Quarterly Billing",
+        bill_save: "(Save 15%)",
+        most_popular: "Most Popular",
+        choose_plan_btn: "Choose Plan",
+        plan1_badge: "Pay As You Swim",
+        plan1_title: "Daily / Drop-in Pass",
+        plan1_sub: "Perfect for single visits, guests & weekend relaxation",
+        plan1_price: "৳1,200",
+        plan1_unit: " / 90 mins session",
+        plan1_f1: "50m Olympic or 25m Heated Pool",
+        plan1_f2: "RFID Smart Locker & Hot Rain Shower",
+        plan1_f3: "Complimentary Sanitized Fresh Towel",
+        plan1_f4: "Sauna, Steam & Guest Passes",
+
+        plan2_badge: "Unlimited Lap Swimmer",
+        plan2_title: "Monthly Pro Membership",
+        plan2_title_qtr: "Quarterly Pro Membership",
+        plan2_sub: "Unlimited daily access billed monthly",
+        plan2_sub_qtr: "Unlimited daily access billed quarterly",
+        plan2_price_m: "৳7,500",
+        plan2_unit_m: " / month",
+        plan2_price_q: "৳19,100",
+        plan2_unit_q: " / quarter (Save 15%)",
+        plan2_f1: "Unlimited Daily Pool & Lap Access",
+        plan2_f2: "Full Sauna & Steam Room Access",
+        plan2_f3: "1 Free Stroke Assessment Session",
+        plan2_f4: "2 Free Guest Passes Every Month",
+
+        plan3_badge: "Up to 4 Family Members",
+        plan3_title: "Quarterly / Family VIP",
+        plan3_sub: "2 Adults + 2 Kids (Under 16 Years)",
+        plan3_price_m: "৳18,500",
+        plan3_unit_m: " / month (Family Pack)",
+        plan3_price_q: "৳47,100",
+        plan3_unit_q: " / quarter (Family VIP)",
+        plan3_f1: "Unlimited Access for 4 Family Members",
+        plan3_f2: "20% Off All Kids Swimming Courses",
+        plan3_f3: "Dedicated Permanent Locker Cabinet",
+        plan3_f4: "Free Valet Parking & Cafe 15% Off",
+
+        book_eyebrow: "Instant Reservation",
+        book_title: "Book Your Swim Slot or Course",
+        book_desc: "Select a program, membership plan, or hourly pool session below to generate your instant Booking Confirmation ID.",
+        lbl_service_type: "Service Type *",
+        opt_type_slot: "Hourly Pool Slot / Day Pass",
+        opt_type_program: "Swimming Program / Course",
+        opt_type_membership: "Membership Plan",
+        lbl_package: "Program / Package *",
+        lbl_date: "Preferred Date *",
+        lbl_slot: "Time Slot *",
+        slot_morning: "Morning (6:30 AM – 9:30 AM)",
+        slot_ladies: "Ladies Hour (10:00 AM – 1:00 PM)",
+        slot_afternoon: "Afternoon (3:30 PM – 6:30 PM)",
+        slot_evening: "Evening (7:00 PM – 10:00 PM)",
+        lbl_guests: "Guest Count *",
+        guest_1: "1 Swimmer",
+        guest_2: "2 Swimmers",
+        guest_3: "3 Swimmers",
+        guest_4: "4+ Family Group",
+        lbl_fullname: "Full Name *",
+        ph_fullname: "e.g. Tanvir Ahmed",
+        lbl_phone: "Phone / WhatsApp Number *",
+        ph_phone: "+880 17XX-XXXXXX",
+        btn_confirm_booking: "Confirm Online Reservation",
+        rules_title: "Pool Check-In Rules",
+        rule_1: "• Proper synthetic swimwear (lycra/nylon) & swim caps are mandatory for hygiene.",
+        rule_2: "• Pay conveniently at reception via bKash, Nagad, Visa/Mastercard, or Cash.",
+        rule_3: "• Free rescheduling up to 4 hours prior to your booked session.",
+        rule_4: "• Complimentary fresh towels & digital lockers included with every pass.",
+        corp_title: "Group or Corporate Events?",
+        corp_desc: "Need private lane rentals, school swimming galas, or pool-side corporate wellness days?",
+        btn_whatsapp: "Instant WhatsApp Desk",
+
+        gal_eyebrow: "Visual Tour",
+        gal_title: "Facility Photos & Video Highlights",
+        gal_desc: "Click any photo or video highlight to open full-screen preview.",
+        gfilter_all: "All",
+        gfilter_pools: "Pools",
+        gfilter_training: "Training",
+        gfilter_facilities: "Facilities",
+        gfilter_videos: "Videos",
+        tour_modal_title: "AquaWave 4K Virtual Tour",
+        tour_modal_desc: "Tour our 50m underwater LED racing lanes, German UV filtration plant room, and heated indoor kids academy in Banani, Dhaka.",
+        tour_modal_btn: "Book an In-Person Visit",
+
+        con_eyebrow: "Visit & Connect",
+        con_title: "Location & Contact",
+        con_desc: "Located at the heart of Banani, Dhaka with basement valet parking and easy access from Gulshan & Baridhara.",
+        con_card1_title: "Club Address",
+        con_card1_desc: "House 42, Road 11, Block H,<br/>Banani Aquatic Complex, Dhaka 1213",
+        con_card2_title: "Operating Hours",
+        con_card2_desc: "Sat – Thu: 6:00 AM – 10:30 PM<br/>Friday: 7:00 AM – 10:30 PM",
+        con_card3_title: "Phone & Hotline",
+        con_card3_desc: "+880 1711-000000<br/>+880 2-9880000",
+        con_card4_title: "Email Desk",
+        map_badge: "Free Basement Valet Parking",
+        map_title: "Banani Lakefront Aquatic Complex",
+        map_sub: "3 mins from Banani Road 11 Bridge • Dhaka",
+        btn_gmaps: "Google Maps",
+        map_pin: "AquaWave Arena • Banani R-11",
+        inq_title: "Send Us a Quick Inquiry",
+        inq_desc: "Ask about coaching batches, ladies' timings, or private event bookings.",
+        lbl_inq_name: "Full Name *",
+        ph_inq_name: "Enter your name",
+        lbl_inq_email: "Email *",
+        lbl_inq_phone: "Phone",
+        lbl_inq_msg: "Message *",
+        ph_inq_msg: "Write your question or inquiry here...",
+        btn_send_msg: "Send Message",
+
+        faq_eyebrow: "Help Center",
+        faq_title: "Frequently Asked Questions",
+        faq_desc: "Everything you need to know about water hygiene, swimwear dress code, female-only timings, and memberships.",
+
+        footer_about: "Dhaka's premier temperature-controlled swimming club & arena. Committed to water safety, UV hygiene, and aquatic excellence.",
+        footer_col1: "Sections",
+        footer_col2: "Quick Access",
+        footer_col3: "Connect With Us",
+        footer_link_about: "About Pool & Hygiene",
+        footer_link_mem: "Membership Packages",
+        footer_link_book: "Online Slot Booking",
+        footer_link_gal: "Photo & Video Gallery",
+        footer_link_con: "Location & Contact",
+        footer_link_faq: "Common FAQs",
+        footer_addr: "Road 11, Block H, Banani, Dhaka 1213",
+        footer_copy: "© 2026 AquaWave Swimming Club & Arena. All rights reserved.",
+        footer_cert: "Water Quality Certified • FINA Standard Facility",
+        quick_book: "Quick Book",
+
+        modal_book_title: "Booking Confirmed!",
+        modal_book_sub: "Present this e-receipt at the AquaWave reception desk.",
+        rcpt_id: "Booking ID:",
+        rcpt_name: "Swimmer Name:",
+        rcpt_type: "Service Type:",
+        rcpt_item: "Selected Item:",
+        rcpt_dt: "Date & Slot:",
+        rcpt_guests: "Guests:",
+        btn_done_close: "Done & Close",
+
+        toast_selected: "Selected: ",
+        toast_inquiry: "Inquiry received! Our Banani desk will contact you shortly.",
+        toast_lang: "Language switched to English"
+      },
+
+      bn: {
+        page_title: "অ্যাকুয়াওয়েভ সুইমিং ক্লাব অ্যান্ড অ্যারেনা | ঢাকার আধুনিক অ্যাকুয়াটিক সেন্টার",
+        top_address: "রোড ১১, ব্লক এইচ, বনানী অ্যাকুয়াটিক কমপ্লেক্স, ঢাকা ১২১৩",
+        top_temp: "পানির তাপমাত্রা: ২৮.৫°সে (ইউভি-সি ও ওজোন পরিশোধিত)",
+        top_hours: "প্রতিদিন: সকাল ৬:০০ – রাত ১০:৩০",
+        top_phone: "+৮৮০ ১৭১১-০০০০০০",
+        brand_sub: "সুইমিং ক্লাব অ্যান্ড অ্যারেনা",
+        nav_home: "হোম",
+        nav_about: "আমাদের সম্পর্কে",
+        nav_programs: "সুইমিং প্রোগ্রাম",
+        nav_programs_short: "প্রোগ্রাম",
+        nav_membership: "মেম্বারশিপ",
+        nav_booking: "বুকিং",
+        nav_gallery: "গ্যালারি",
+        nav_contact: "যোগাযোগ",
+        nav_faq: "প্রশ্নোত্তর",
+        nav_book_now: "বুকিং করুন",
+        mobile_lang_label: "ভাষা নির্বাচন করুন / Select Language:",
+
+        hero_badge: "ঢাকার প্রথম তাপমাত্রা-নিয়ন্ত্রিত ইউভি ও ওজোন অ্যাকুয়াটিক ক্লাব",
+        hero_title: 'প্রতিদিন ডুব দিন স্বচ্ছ ও <span class="text-[#38BDF8]">আধুনিক</span> সাঁতারের অভিজ্ঞতায়।',
+        hero_subtitle: 'বনানী, ঢাকায় অবস্থিত <strong>অ্যাকুয়াওয়েভ সুইমিং ক্লাব অ্যান্ড অ্যারেনায়</strong> আপনাকে স্বাগতম। আপনি প্রথমবার সাঁতার শিখুন, জাতীয় প্রতিযোগিতার জন্য অনুশীলন করুন কিংবা পরিশোধিত উষ্ণ পানিতে রিলাক্স করুন—আমরা দিচ্ছি সর্বোচ্চ নিরাপত্তা ও স্বাস্থ্যসম্মত পরিবেশ।',
+        hero_cta_primary: "সেশন বুক করুন",
+        hero_cta_secondary: "প্রোগ্রামসমূহ দেখুন",
+        stat1_val: "৫০মি ও ২৫মি",
+        stat1_lbl: "অলিম্পিক ও হিটেড পুল",
+        stat2_val: "১৮+",
+        stat2_lbl: "ফিনা-সার্টিফাইড প্রশিক্ষক",
+        stat3_val: "২৮.৫°সে",
+        stat3_lbl: "তাপমাত্রা-নিয়ন্ত্রিত পানি",
+        stat4_val: "১০০%",
+        stat4_lbl: "হাইজেনিক ইউভি ও ওজোন ফিল্টার",
+
+        about_eyebrow: "অ্যাকুয়াওয়েভ সম্পর্কে",
+        about_title: "আন্তর্জাতিক মানের সুইমিং পুল ও নিরাপত্তা ব্যবস্থা",
+        about_desc: "আন্তর্জাতিক FINA মানদণ্ডে নির্মিত জার্মান UV-C ও ওজোন ওয়াটার স্যানিটেশন, স্বল্প ক্লোরিনযুক্ত ত্বক-বান্ধব পানি এবং সার্বক্ষণিক দক্ষ লাইফগার্ডের তত্ত্বাবধান।",
+        telemetry_tag: "লাইভ পানির মান পর্যবেক্ষণ",
+        telemetry_val: "pH মাত্রা: ৭.৪ • তাপমাত্রা: ২৮.৫°সে • বিশুদ্ধতা: ৯৯.৯% UV",
+        telemetry_status: "সর্বোত্তম",
+        zone1_tag: "জোন ০১ • মেইন অ্যারেনা",
+        zone1_meta: "গভীরতা: ১.৪মি – ২.২মি",
+        zone1_title: "৫০ মিটার অলিম্পিক ৮-লেন ল্যাপ পুল",
+        zone1_desc: "অ্যান্টি-ওয়েভ রেসিং লেন ডিভাইডার, আন্ডারওয়াটার এলইডি পেসিং লাইট এবং ফিটনেস ও প্রতিযোগিতামূলক সাঁতারুদের জন্য সুশৃঙ্খল লেন ব্যবস্থা।",
+        zone2_tag: "জোন ০২ • ইনডোর পুল",
+        zone2_meta: "তাপমাত্রা: ২৯.৫°সে হিটেড",
+        zone2_title: "২৫ মিটার হিটেড ট্রেনিং ও লেডিস পুল",
+        zone2_desc: "নিরাপদ উচ্চতা (১.০মি – ১.৩মি) এবং সম্পূর্ণ গোপনীয়তাসহ নারীদের বিশেষ সকালের ব্যাচ ও নতুন সাঁতারুদের জন্য আদর্শ।",
+        zone3_tag: "জোন ০৩ • শিশুদের নিরাপদ জোন",
+        zone3_meta: "গভীরতা: ০.৬মি – ০.৮মি",
+        zone3_title: "কিডস স্প্ল্যাশ ও কনফিডেন্স জোন",
+        zone3_desc: "অ্যান্টি-স্লিপ নরম ফ্লোরিং, হালকা উষ্ণ মিনারেল-ব্যালেন্সড পানি এবং প্রতি ৪ জনে ১ জন প্রশিক্ষকের সার্বক্ষণিক নজরদারি।",
+        feat1_title: "ইউভি-সি ও ওজোন স্যানিটেশন",
+        feat1_desc: "সাধারণ পুলের চেয়ে ৮০% কম ক্লোরিন—যা সংবেদনশীল ত্বক, চুল ও চোখের জন্য সম্পূর্ণ নিরাপদ।",
+        feat2_title: "সার্টিফাইড লাইফগার্ড টিম",
+        feat2_desc: "সকাল ৬টা থেকে রাত ১০:৩০ পর্যন্ত পুরো সময় জুড়ে রেড ক্রস প্রশিক্ষিত লাইফগার্ডরা দায়িত্ব পালন করেন।",
+        feat3_title: "আরএফআইডি স্মার্ট লকার স্যুট",
+        feat3_desc: "প্রাইভেট হট রেইন শাওয়ার, সুইমস্যুট ড্রায়ার, হেয়ার ড্রায়ার, সনা এবং স্টিম রুম সুবিধা।",
+        feat4_title: "অভিভাবকদের ভিউয়িং লাউঞ্জ",
+        feat4_desc: "শীতাতপ নিয়ন্ত্রিত গ্লাস গ্যালারি থেকে সরাসরি পুল দেখার সুবিধা, ফ্রেশ জুস বার ও হাই-স্পিড ওয়াই-ফাই।",
+
+        prog_eyebrow: "একাডেমি ও প্রশিক্ষণ",
+        prog_title: "সুইমিং প্রোগ্রাম ও কোর্সসমূহ",
+        prog_desc: 'FINA-সার্টিফাইড পুরুষ ও নারী প্রশিক্ষকদের তত্ত্বাবধানে পরিচালিত বিশেষ প্রশিক্ষণ মডিউল। বুকিং করতে যেকোনো কোর্সের "নির্বাচন ও বুক করুন" বাটনে ক্লিক করুন।',
+        filter_all: "সকল প্রোগ্রাম",
+        filter_kids: "শিশু ও টডলার",
+        filter_adult: "প্রাপ্তবয়স্ক বিগিনার",
+        filter_ladies: "শুধুমাত্র নারীদের ব্যাচ",
+        filter_comp: "প্রতিযোগিতামূলক ও ল্যাপ",
+        filter_fit: "অ্যাকুয়া ফিটনেস",
+        card_duration: "মেয়াদ:",
+        card_schedule: "সময়সূচি:",
+        card_fee: "কোর্স ফি:",
+        card_select_btn: "নির্বাচন ও বুক করুন",
+
+        mem_eyebrow: "সাশ্রয়ী প্যাকেজ",
+        mem_title: "মেম্বারশিপ প্ল্যান ও মূল্য তালিকা",
+        mem_desc: "কোনো গোপন চার্জ ছাড়াই স্বচ্ছ মূল্য (৳)। মাসিক অথবা ত্রৈমাসিক (Quarterly) বিলিং বেছে নিয়ে সর্বোচ্চ ১৫% পর্যন্ত সাশ্রয় করুন।",
+        bill_monthly: "মাসিক বিলিং",
+        bill_quarterly: "ত্রৈমাসিক বিলিং",
+        bill_save: "(১৫% সাশ্রয়)",
+        most_popular: "সবচেয়ে জনপ্রিয়",
+        choose_plan_btn: "প্ল্যান নির্বাচন করুন",
+        plan1_badge: "প্রতি সেশন ভিত্তিক",
+        plan1_title: "ডেইলি / ড্রপ-ইন পাস",
+        plan1_sub: "একক ভিজিট, অতিথি ও সাপ্তাহিক ছুটির দিনের জন্য উপযুক্ত",
+        plan1_price: "৳১,২০০",
+        plan1_unit: " / ৯০ মিনিটের সেশন",
+        plan1_f1: "৫০মি অলিম্পিক বা ২৫মি হিটেড পুল ব্যবহার",
+        plan1_f2: "RFID স্মার্ট লকার ও হট রেইন শাওয়ার",
+        plan1_f3: "বিনামূল্যে জীবাণুমুক্ত ফ্রেশ তোয়ালে",
+        plan1_f4: "সনা, স্টিম ও গেস্ট পাস সুবিধা",
+
+        plan2_badge: "আনলিমিটেড ল্যাপ সুইমার",
+        plan2_title: "মান্থলি প্রো মেম্বারশিপ",
+        plan2_title_qtr: "কোয়ার্টারলি প্রো মেম্বারশিপ",
+        plan2_sub: "মাসিক বিলে প্রতিদিন আনলিমিটেড পুল অ্যাক্সেস",
+        plan2_sub_qtr: "ত্রৈমাসিক বিলে প্রতিদিন আনলিমিটেড অ্যাক্সেস",
+        plan2_price_m: "৳৭,৫০০",
+        plan2_unit_m: " / মাস",
+        plan2_price_q: "৳১৯,১০০",
+        plan2_unit_q: " / ৩ মাস (১৫% সাশ্রয়)",
+        plan2_f1: "প্রতিদিন আনলিমিটেড পুল ও ল্যাপ অ্যাক্সেস",
+        plan2_f2: "সম্পূর্ণ সনা ও স্টিম রুম ব্যবহারের সুবিধা",
+        plan2_f3: "১টি ফ্রি স্ট্রোক অ্যাসেসমেন্ট সেশন",
+        plan2_f4: "প্রতি মাসে ২টি ফ্রি গেস্ট পাস",
+
+        plan3_badge: "সর্বোচ্চ ৪ জন সদস্য",
+        plan3_title: "কোয়ার্টারলি / ফ্যামিলি ভিআইপি",
+        plan3_sub: "২ জন প্রাপ্তবয়স্ক + ২ জন শিশু (১৬ বছরের নিচে)",
+        plan3_price_m: "৳১৮,৫০০",
+        plan3_unit_m: " / মাস (ফ্যামিলি প্যাক)",
+        plan3_price_q: "৳৪৭,১০০",
+        plan3_unit_q: " / ৩ মাস (ফ্যামিলি ভিআইপি)",
+        plan3_f1: "পরিবারের ৪ জন সদস্যের আনলিমিটেড অ্যাক্সেস",
+        plan3_f2: "শিশুদের সকল সুইমিং কোর্সে ২০% ছাড়",
+        plan3_f3: "স্থায়ী ব্যক্তিগত লকার ক্যাবিনেট সুবিধা",
+        plan3_f4: "ফ্রি ভ্যালেট পার্কিং ও ক্যাফেতে ১৫% ছাড়",
+
+        book_eyebrow: "তাৎক্ষণিক রিজার্ভেশন",
+        book_title: "আপনার সুইম স্লট বা কোর্স বুক করুন",
+        book_desc: "তাৎক্ষণিক বুকিং কনফার্মেশন আইডি পেতে নিচ থেকে প্রোগ্রাম, মেম্বারশিপ বা ঘণ্টাভিত্তিক সেশন নির্বাচন করুন।",
+        lbl_service_type: "সেবার ধরন *",
+        opt_type_slot: "ঘণ্টাভিত্তিক পুল স্লট / ডে পাস",
+        opt_type_program: "সুইমিং প্রোগ্রাম / কোর্স",
+        opt_type_membership: "মেম্বারশিপ প্ল্যান",
+        lbl_package: "প্রোগ্রাম / প্যাকেজ *",
+        lbl_date: "পছন্দের তারিখ *",
+        lbl_slot: "সময়ের স্লট *",
+        slot_morning: "সকাল (৬:৩০ – ৯:৩০)",
+        slot_ladies: "লেডিস আওয়ার (সকাল ১০:০০ – দুপুর ১:০০)",
+        slot_afternoon: "বিকাল (৩:৩০ – সন্ধ্যা ৬:৩০)",
+        slot_evening: "সন্ধ্যা (৭:০০ – রাত ১০:০০)",
+        lbl_guests: "সাঁতারুর সংখ্যা *",
+        guest_1: "১ জন সাঁতারু",
+        guest_2: "২ জন সাঁতারু",
+        guest_3: "৩ জন সাঁতারু",
+        guest_4: "৪+ ফ্যামিলি গ্রুপ",
+        lbl_fullname: "পূর্ণ নাম *",
+        ph_fullname: "যেমন: তানভীর আহমেদ",
+        lbl_phone: "ফোন / হোয়াটসঅ্যাপ নম্বর *",
+        ph_phone: "+৮৮০ ১৭XX-XXXXXX",
+        btn_confirm_booking: "অনলাইন বুকিং নিশ্চিত করুন",
+        rules_title: "পুল চেক-ইন নিয়মাবলি",
+        rule_1: "• স্বাস্থ্যবিধির স্বার্থে সিন্থেটিক সুইমওয়্যার (লাইক্রা/নাইলন) ও সুইম ক্যাপ বাধ্যতামূলক।",
+        rule_2: "• রিসেপশন ডেস্কে বিকাশ, নগদ, ভিসা/মাস্টারকার্ড বা নগদে পেমেন্ট করতে পারবেন।",
+        rule_3: "• নির্ধারিত সেশনের ৪ ঘণ্টা আগে পর্যন্ত বিনামূল্যে সময় পরিবর্তন করা যাবে।",
+        rule_4: "• প্রতিটি পাসের সাথে জীবাণুমুক্ত তোয়ালে ও ডিজিটাল লকার বিনামূল্যে অন্তর্ভুক্ত।",
+        corp_title: "গ্রুপ বা কর্পোরেট ইভেন্ট?",
+        corp_desc: "প্রাইভেট লেন ভাড়া, স্কুল সুইমিং প্রতিযোগিতা বা কর্পোরেট ওয়েলনেস ডে আয়োজন করতে চান?",
+        btn_whatsapp: "সরাসরি হোয়াটসঅ্যাপ ডেস্ক",
+
+        gal_eyebrow: "ভিজ্যুয়াল ট্যুর",
+        gal_title: "সুবিধাসমূহের ছবি ও ভিডিও হাইলাইটস",
+        gal_desc: "পূর্ণ স্ক্রিনে দেখতে যেকোনো ছবি বা ভিডিও হাইলাইটে ক্লিক করুন।",
+        gfilter_all: "সবগুলো",
+        gfilter_pools: "সুইমিং পুল",
+        gfilter_training: "প্রশিক্ষণ",
+        gfilter_facilities: "সুবিধাসমূহ",
+        gfilter_videos: "ভিডিও",
+        tour_modal_title: "অ্যাকুয়াওয়েভ ৪কে ভার্চুয়াল ট্যুর",
+        tour_modal_desc: "বনানী, ঢাকায় আমাদের ৫০ মিটার আন্ডারওয়াটার এলইডি রেসিং লেন, জার্মান ইউভি ফিল্টারেশন প্ল্যান্ট রুম এবং হিটেড ইনডোর কিডস একাডেমি ঘুরে দেখুন।",
+        tour_modal_btn: "সরাসরি ভিজিট বুক করুন",
+
+        con_eyebrow: "ভিজিট ও যোগাযোগ",
+        con_title: "অবস্থান ও যোগাযোগের ঠিকানা",
+        con_desc: "বনানী, ঢাকার কেন্দ্রস্থলে অবস্থিত—বেজমেন্ট ভ্যালেট পার্কিং এবং গুলশান ও বারিধারা থেকে সহজ যাতায়াত ব্যবস্থা।",
+        con_card1_title: "ক্লাবের ঠিকানা",
+        con_card1_desc: "বাড়ি ৪২, রোড ১১, ব্লক এইচ,<br/>বনানী অ্যাকুয়াটিক কমপ্লেক্স, ঢাকা ১২১৩",
+        con_card2_title: "খোলা থাকার সময়",
+        con_card2_desc: "শনি – বৃহস্পতি: সকাল ৬:০০ – রাত ১০:৩০<br/>শুক্রবার: সকাল ৭:০০ – রাত ১০:৩০",
+        con_card3_title: "ফোন ও হটলাইন",
+        con_card3_desc: "+৮৮০ ১৭১১-০০০০০০<br/>+৮৮০ ২-৯৮৮০০০০",
+        con_card4_title: "ইমেইল ডেস্ক",
+        map_badge: "ফ্রি বেজমেন্ট ভ্যালেট পার্কিং",
+        map_title: "বনানী লেকফ্রন্ট অ্যাকুয়াটিক কমপ্লেক্স",
+        map_sub: "বনানী ১১ নম্বর ব্রিজ থেকে ৩ মিনিটের দূরত্ব • ঢাকা",
+        btn_gmaps: "গুগল ম্যাপস",
+        map_pin: "অ্যাকুয়াওয়েভ অ্যারেনা • বনানী রোড-১১",
+        inq_title: "আমাদের সরাসরি বার্তা পাঠান",
+        inq_desc: "কোচিং ব্যাচ, নারীদের সময়সূচি বা প্রাইভেট ইভেন্ট বুকিং সম্পর্কে জানতে প্রশ্ন করুন।",
+        lbl_inq_name: "পূর্ণ নাম *",
+        ph_inq_name: "আপনার নাম লিখুন",
+        lbl_inq_email: "ইমেইল *",
+        lbl_inq_phone: "ফোন নম্বর",
+        lbl_inq_msg: "আপনার বার্তা *",
+        ph_inq_msg: "আপনার প্রশ্ন বা মতামত এখানে লিখুন...",
+        btn_send_msg: "বার্তা পাঠান",
+
+        faq_eyebrow: "সহায়তা কেন্দ্র",
+        faq_title: "সচরাচর জিজ্ঞাসিত প্রশ্নাবলি (FAQ)",
+        faq_desc: "পানির বিশুদ্ধতা, সুইমওয়্যার ড্রেস কোড, নারীদের আলাদা সময়সূচি এবং মেম্বারশিপ সম্পর্কে প্রয়োজনীয় সব তথ্য।",
+
+        footer_about: "ঢাকার আধুনিক তাপমাত্রা-নিয়ন্ত্রিত সুইমিং ক্লাব ও অ্যারেনা। পানির নিরাপত্তা, ইউভি হাইজিন এবং সাঁতারের উৎকর্ষতায় প্রতিশ্রুতিবদ্ধ।",
+        footer_col1: "সেকশনসমূহ",
+        footer_col2: "দ্রুত লিংক",
+        footer_col3: "যুক্ত থাকুন",
+        footer_link_about: "পুল ও হাইজিন তথ্য",
+        footer_link_mem: "মেম্বারশিপ প্যাকেজ",
+        footer_link_book: "অনলাইন স্লট বুকিং",
+        footer_link_gal: "ছবি ও ভিডিও গ্যালারি",
+        footer_link_con: "অবস্থান ও যোগাযোগ",
+        footer_link_faq: "সাধারণ প্রশ্নোত্তর",
+        footer_addr: "রোড ১১, ব্লক এইচ, বনানী, ঢাকা ১২১৩",
+        footer_copy: "© ২০২৬ অ্যাকুয়াওয়েভ সুইমিং ক্লাব অ্যান্ড অ্যারেনা। সর্বস্বত্ব সংরক্ষিত।",
+        footer_cert: "পানির মান পরীক্ষিত • FINA স্ট্যান্ডার্ড ফ্যাসিলিটি",
+        quick_book: "কুইক বুক",
+
+        modal_book_title: "বুকিং সফলভাবে সম্পন্ন হয়েছে!",
+        modal_book_sub: "অ্যাকুয়াওয়েভ রিসেপশন ডেস্কে এই ই-রিসিটটি প্রদর্শন করুন।",
+        rcpt_id: "বুকিং আইডি:",
+        rcpt_name: "সাঁতারুর নাম:",
+        rcpt_type: "সেবার ধরন:",
+        rcpt_item: "নির্বাচিত প্যাকেজ:",
+        rcpt_dt: "তারিখ ও স্লট:",
+        rcpt_guests: "অতিথি সংখ্যা:",
+        btn_done_close: "সম্পন্ন ও বন্ধ করুন",
+
+        toast_selected: "নির্বাচিত হয়েছে: ",
+        toast_inquiry: "আপনার বার্তা গৃহীত হয়েছে! বনানী ডেস্ক থেকে শীঘ্রই যোগাযোগ করা হবে।",
+        toast_lang: "ভাষা বাংলায় পরিবর্তন করা হয়েছে"
+      }
+    };
+
+    // Bilingual Swimming Programs Data
+    const programsData = [
+      {
+        category: 'kids',
+        en: {
+          badge: 'Ages 4 – 10 Years',
+          title: 'Kids & Toddlers Water Confidence',
+          level: 'Beginner',
+          duration: '8 Weeks (16 Classes)',
+          schedule: 'Fri & Sat • 10:00 AM',
+          price: '৳6,500',
+          desc: 'Safe floating, bubble breathing, and basic strokes in our 29.5°C shallow splash zone with 1:4 coach ratio.'
+        },
+        bn: {
+          badge: 'বয়স ৪ – ১০ বছর',
+          title: 'কিডস ও টডলার ওয়াটার কনফিডেন্স',
+          level: 'বিগিনার',
+          duration: '৮ সপ্তাহ (১৬টি ক্লাস)',
+          schedule: 'শুক্র ও শনি • সকাল ১০:০০',
+          price: '৳৬,৫০০',
+          desc: '২৯.৫°সে উষ্ণ অগভীর স্প্ল্যাশ জোনে প্রতি ৪ জনে ১ জন প্রশিক্ষকের তত্ত্বাবধানে নিরাপদ ভাসা ও মৌলিক সাঁতার শিক্ষা।'
+        }
+      },
+      {
+        category: 'adult',
+        en: {
+          badge: 'Ages 16+ Mixed',
+          title: 'Adult Zero-to-Swim Bootcamp',
+          level: 'Beginner',
+          duration: '6 Weeks (12 Classes)',
+          schedule: 'Sun, Tue & Thu • 7:30 PM',
+          price: '৳7,200',
+          desc: 'Overcome deep-water fear and master confident freestyle & treading water in a supportive adult group.'
+        },
+        bn: {
+          badge: 'বয়স ১৬+ (প্রাপ্তবয়স্ক)',
+          title: 'অ্যাডাল্ট জিরো-টু-সুইম বুটক্যাম্প',
+          level: 'বিগিনার',
+          duration: '৬ সপ্তাহ (১২টি ক্লাস)',
+          schedule: 'রবি, মঙ্গল ও বৃহঃ • সন্ধ্যা ৭:৩০',
+          price: '৳৭,২০০',
+          desc: 'গভীর পানির ভয় কাটিয়ে আত্মবিশ্বাসের সাথে ফ্রিস্টাইল সাঁতার এবং পানিতে ভেসে থাকার কৌশল আয়ত্ত করুন।'
+        }
+      },
+      {
+        category: 'ladies',
+        en: {
+          badge: '100% Female Staff',
+          title: 'Ladies-Only Exclusive Swim Course',
+          level: 'All Levels',
+          duration: '6 Weeks (12 Classes)',
+          schedule: 'Daily • 10:30 AM – 12:30 PM',
+          price: '৳7,500',
+          desc: 'Held in our enclosed indoor heated pool with certified female instructors and female lifeguards.'
+        },
+        bn: {
+          badge: '১০০% নারী প্রশিক্ষক ও স্টাফ',
+          title: 'লেডিস-অনলি এক্সক্লুসিভ সুইম কোর্স',
+          level: 'সকল স্তর',
+          duration: '৬ সপ্তাহ (১২টি ক্লাস)',
+          schedule: 'প্রতিদিন • সকাল ১০:৩০ – ১২:৩০',
+          price: '৳৭,৫০০',
+          desc: 'সম্পূর্ণ সংরক্ষিত ইনডোর হিটেড পুলে অভিজ্ঞ নারী প্রশিক্ষক ও নারী লাইফগার্ডদের তত্ত্বাবধানে নিরাপদ সাঁতার শিক্ষা।'
+        }
+      },
+      {
+        category: 'competitive',
+        en: {
+          badge: 'Youth & Senior Athletes',
+          title: 'Competitive 4-Stroke & Lap Squad',
+          level: 'Advanced',
+          duration: 'Monthly Ongoing',
+          schedule: 'Mon – Fri • 6:30 AM',
+          price: '৳9,500 / mo',
+          desc: 'High-intensity 50m Olympic lap conditioning, dive starts, flip turns, and pace-clock endurance drills.'
+        },
+        bn: {
+          badge: 'যুব ও সিনিয়র অ্যাথলেট',
+          title: 'কম্পিটিটিভ ৪-স্ট্রোক ও ল্যাপ স্কোয়াড',
+          level: 'অ্যাডভান্সড',
+          duration: 'মাসিক চলমান ব্যাচ',
+          schedule: 'সোম – শুক্র • সকাল ৬:৩০',
+          price: '৳৯,৫০০ / মাস',
+          desc: '৫০ মিটার অলিম্পিক ল্যাপ কন্ডিশনিং, ডাইভ স্টার্ট, ফ্লিপ টার্ন এবং প্রতিযোগিতামূলক স্ট্যামিনা বৃদ্ধি।'
+        }
+      },
+      {
+        category: 'fitness',
+        en: {
+          badge: 'Zero-Impact Cardio',
+          title: 'Aqua HIIT & Hydro-Sculpt',
+          level: 'All Fitness Levels',
+          duration: '4 Weeks (12 Sessions)',
+          schedule: 'Sat, Mon & Wed • 11:00 AM',
+          price: '৳5,800',
+          desc: 'High-calorie-burn water resistance workouts designed to tone muscles while protecting knees and joints.'
+        },
+        bn: {
+          badge: 'জিরো-ইমপ্যাক্ট কার্ডিও',
+          title: 'অ্যাকুয়া HIIT ও হাইড্রো-ফিটনেস',
+          level: 'সকল ফিটনেস স্তর',
+          duration: '৪ সপ্তাহ (১২টি সেশন)',
+          schedule: 'শনি, সোম ও বুধ • সকাল ১১:০০',
+          price: '৳৫,৮০০',
+          desc: 'হাঁটু ও জয়েন্টের ওপর কোনো চাপ না ফেলে পানির প্রতিরোধ ক্ষমতার মাধ্যমে দ্রুত ক্যালোরি বার্ন ও শরীর গঠন।'
+        }
+      },
+      {
+        category: 'kids',
+        en: {
+          badge: 'Ages 8 – 15 Years',
+          title: 'Junior Sharks Stroke Mastery',
+          level: 'Intermediate',
+          duration: '10 Weeks (20 Classes)',
+          schedule: 'Sun, Tue & Thu • 4:00 PM',
+          price: '৳8,000',
+          desc: 'Refining Freestyle, Backstroke, Breaststroke, and Butterfly mechanics for school & national swim meets.'
+        },
+        bn: {
+          badge: 'বয়স ৮ – ১৫ বছর',
+          title: 'জুনিয়র শার্কস স্ট্রোক মাস্টারি',
+          level: 'ইন্টারমিডিয়েট',
+          duration: '১০ সপ্তাহ (২০টি ক্লাস)',
+          schedule: 'রবি, মঙ্গল ও বৃহঃ • বিকাল ৪:০০',
+          price: '৳৮,০০০',
+          desc: 'স্কুল ও জাতীয় পর্যায়ের প্রতিযোগিতার জন্য ফ্রিস্টাইল, ব্যাকস্ট্রোক, ব্রেস্টস্ট্রোক এবং বাটারফ্লাই কৌশল রপ্ত করা।'
+        }
+      }
+    ];
+
+    // Bilingual Gallery Items Data
+    const galleryData = [
+      {
+        type: 'photo',
+        category: 'pools',
+        en: { tag: 'Main 50m Arena', title: 'Olympic 8-Lane Crystal Lap Pool' },
+        bn: { tag: 'মেইন ৫০মি অ্যারেনা', title: 'অলিম্পিক ৮-লেন ক্রিস্টাল ল্যাপ পুল' },
+        img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        type: 'photo',
+        category: 'training',
+        en: { tag: 'Coaching Academy', title: 'Morning Competitive Freestyle Drill' },
+        bn: { tag: 'কোচিং একাডেমি', title: 'সকালের কম্পিটিটিভ ফ্রিস্টাইল অনুশীলন' },
+        img: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        type: 'video',
+        category: 'videos',
+        en: { tag: 'Virtual Video Tour', title: 'Evening Underwater LED & Facility Walkthrough' },
+        bn: { tag: 'ভার্চুয়াল ভিডিও ট্যুর', title: 'সন্ধ্যার আন্ডারওয়াটার এলইডি ও পুল পরিদর্শন' },
+        img: 'https://images.unsplash.com/photo-1560090995-01632a28895b?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        type: 'photo',
+        category: 'pools',
+        en: { tag: 'Indoor Heated Pool', title: '25m Temperature-Controlled Training Pool' },
+        bn: { tag: 'ইনডোর হিটেড পুল', title: '২৫ মিটার তাপমাত্রা-নিয়ন্ত্রিত ট্রেনিং পুল' },
+        img: 'https://images.unsplash.com/photo-1519315901367-f34ff9154487?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        type: 'photo',
+        category: 'facilities',
+        en: { tag: 'Evening Ambiance', title: 'Floodlit Night Lap & Relaxation Deck' },
+        bn: { tag: 'সন্ধ্যার পরিবেশ', title: 'ফ্লাডলাইট নাইট ল্যাপ ও রিলাক্সেশন ডেক' },
+        img: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        type: 'photo',
+        category: 'training',
+        en: { tag: 'Stroke Perfection', title: 'One-on-One Butterfly & Breathing Coaching' },
+        bn: { tag: 'স্ট্রোক পারফেকশন', title: 'ব্যক্তিগত বাটারফ্লাই ও শ্বাস-প্রশ্বাস প্রশিক্ষণ' },
+        img: 'https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?auto=format&fit=crop&w=1000&q=80'
+      }
+    ];
+
+    // Bilingual FAQ Data
+    const faqData = [
+      {
+        en: {
+          q: 'What are your water hygiene and chlorine standards?',
+          a: 'Our pools operate with automated German UV-C and Ozone sanitation that destroys 99.9% of bacteria and viruses while reducing chlorine usage by 80%. Water pH (7.4) and temperature (28.5°C) are monitored hourly.'
+        },
+        bn: {
+          q: 'আপনাদের পানির পরিচ্ছন্নতা ও ক্লোরিনের মানদণ্ড কী?',
+          a: 'আমাদের পুলগুলোতে স্বয়ংক্রিয় জার্মান UV-C এবং ওজোন স্যানিটেশন ব্যবস্থা রয়েছে যা ৯৯.৯% জীবাণু ধ্বংস করে এবং ক্লোরিনের ব্যবহার ৮০% কমিয়ে রাখে। প্রতি ঘণ্টায় পানির pH (৭.৪) এবং তাপমাত্রা (২৮.৫°সে) পরীক্ষা করা হয়।'
+        }
+      },
+      {
+        en: {
+          q: 'What is the mandatory swimming gear and dress code?',
+          a: 'All swimmers must wear proper synthetic swimwear (nylon, polyester, or lycra) and a swim cap. Cotton t-shirts or street shorts are not permitted in the water. Modest full-body swimsuits/burkinis made of swimwear fabric are welcome.'
+        },
+        bn: {
+          q: 'পুলে নামার জন্য বাধ্যতামূলক পোশাক বা ড্রেস কোড কী?',
+          a: 'সকল সাঁতারুকে অবশ্যই সিন্থেটিক সুইমওয়্যার (নাইলন, পলিয়েস্টার বা লাইক্রা) এবং সুইম ক্যাপ পরতে হবে। সুতির টি-শার্ট বা সাধারণ শর্টস পরে পানিতে নামা নিষেধ। সুইমওয়্যার কাপড়ের তৈরি ফুল-বডি সুইমস্যুট বা বুরকিনি অনুমোদিত।'
+        }
+      },
+      {
+        en: {
+          q: 'Do you have female-only swimming hours and female coaches?',
+          a: 'Yes! Dedicated Ladies-Only hours run daily from 10:00 AM to 1:00 PM in our enclosed heated indoor pool, supervised exclusively by certified female coaches and female lifeguards.'
+        },
+        bn: {
+          q: 'নারীদের জন্য কি আলাদা সময়সূচি এবং নারী প্রশিক্ষক রয়েছেন?',
+          a: 'হ্যাঁ! প্রতিদিন সকাল ১০:০০টা থেকে দুপুর ১:০০টা পর্যন্ত আমাদের সম্পূর্ণ সংরক্ষিত ইনডোর হিটেড পুলে শুধুমাত্র নারীদের সেশন চলে, যেখানে অভিজ্ঞ নারী প্রশিক্ষক ও নারী লাইফগার্ডরা দায়িত্ব পালন করেন।'
+        }
+      },
+      {
+        en: {
+          q: 'Can complete beginners or non-swimmers join?',
+          a: 'Absolutely. Over 60% of our adult members joined with zero swimming experience. Our beginner pool starts at a comfortable 1.0-meter standing depth with instructors inside the water.'
+        },
+        bn: {
+          q: 'যারা একদমই সাঁতার জানেন না তারা কি ভর্তি হতে পারবেন?',
+          a: 'অবশ্যই। আমাদের প্রাপ্তবয়স্ক সদস্যদের ৬০%-এরও বেশি কোনো পূর্ব অভিজ্ঞতা ছাড়াই শুরু করেছেন। বিগিনার পুলে পানির গভীরতা মাত্র ১.০ মিটার (দাঁড়ানোর উপযোগী) এবং প্রশিক্ষকরা পানির ভেতরে থেকে সাঁতার শেখান।'
+        }
+      },
+      {
+        en: {
+          q: 'What is your membership freeze or refund policy?',
+          a: 'Monthly Pro and Family VIP members can freeze their membership for up to 14 days for medical or travel reasons at zero cost. Single session bookings can be rescheduled free of charge up to 4 hours before slot time.'
+        },
+        bn: {
+          q: 'মেম্বারশিপ স্থগিত (Freeze) বা সময় পরিবর্তনের নিয়ম কী?',
+          a: 'মান্থলি প্রো এবং ফ্যামিলি ভিআইপি সদস্যরা চিকিৎসা বা ভ্রমণের কারণে কোনো ফি ছাড়াই সর্বোচ্চ ১৪ দিনের জন্য মেম্বারশিপ স্থগিত রাখতে পারবেন। একক সেশন বুকিং নির্ধারিত সময়ের ৪ ঘণ্টা আগে বিনামূল্যে পরিবর্তন করা যায়।'
+        }
+      }
+    ];
+
+    // Bilingual Booking Dropdown Catalog
+    const bookingCatalog = {
+      slot: {
+        en: [
+          'Single Day Pass – 90 Mins (৳1,200)',
+          '50m Olympic Lap Session (৳1,200)',
+          'Ladies-Only Heated Pool Slot (৳1,200)'
+        ],
+        bn: [
+          'সিঙ্গেল ডে পাস – ৯০ মিনিট (৳১,২০০)',
+          '৫০মি অলিম্পিক ল্যাপ সেশন (৳১,২০০)',
+          'লেডিস-অনলি হিটেড পুল স্লট (৳১,২০০)'
+        ]
+      },
+      membership: {
+        en: [
+          'Daily / Drop-in Pass (৳1,200)',
+          'Monthly Pro Membership (৳7,500/mo)',
+          'Quarterly Pro Membership (৳19,100/qtr)',
+          'Family VIP Pack (৳18,500/mo)',
+          'Quarterly Family VIP (৳47,100/qtr)'
+        ],
+        bn: [
+          'ডেইলি / ড্রপ-ইন পাস (৳১,২০০)',
+          'মান্থলি প্রো মেম্বারশিপ (৳৭,৫০০/মাস)',
+          'কোয়ার্টারলি প্রো মেম্বারশিপ (৳১৯,১০০/৩ মাস)',
+          'ফ্যামিলি ভিআইপি প্যাক (৳১৮,৫০০/মাস)',
+          'কোয়ার্টারলি ফ্যামিলি ভিআইপি (৳৪৭,১০০/৩ মাস)'
+        ]
+      }
+    };
+
+    // ==================== CORE LANGUAGE SWITCHER ====================
+    function setLanguage(lang, showNotification = true) {
+      currentLang = (lang === 'bn') ? 'bn' : 'en';
+      localStorage.setItem('aquawave_lang', currentLang);
+
+      // Update HTML lang & data-lang attributes for CSS font switching
+      document.documentElement.setAttribute('lang', currentLang);
+      document.documentElement.setAttribute('data-lang', currentLang);
+      document.title = i18n[currentLang].page_title;
+
+      // Update active pill button styles (Header + Mobile Drawer)
+      document.querySelectorAll('.lang-toggle-btn').forEach(btn => {
+        const isTarget = btn.getAttribute('data-lang-btn') === currentLang;
+        if (isTarget) {
+          btn.classList.add('bg-[#0B5C6B]', 'text-white', 'shadow-sm', 'font-extrabold');
+          btn.classList.remove('text-[#3B5561]', 'font-bold');
+        } else {
+          btn.classList.remove('bg-[#0B5C6B]', 'text-white', 'shadow-sm', 'font-extrabold');
+          btn.classList.add('text-[#3B5561]', 'font-bold');
+        }
+      });
+
+      // Translate all static text nodes
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[currentLang][key] !== undefined) {
+          el.textContent = i18n[currentLang][key];
+        }
+      });
+
+      // Translate HTML rich text nodes
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (i18n[currentLang][key] !== undefined) {
+          el.innerHTML = i18n[currentLang][key];
+        }
+      });
+
+      // Translate input/textarea placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (i18n[currentLang][key] !== undefined) {
+          el.setAttribute('placeholder', i18n[currentLang][key]);
+        }
+      });
+
+      // Re-render dynamic components in the active language
+      renderPrograms(currentProgramFilter);
+      renderGallery(currentGalleryFilter);
+      renderFAQs();
+      updateMembershipPricesUI();
+      populateProgramDropdown();
+
+      if (showNotification) {
+        showToast(i18n[currentLang].toast_lang);
+      }
+    }
+
+    // ==================== MOBILE MENU ====================
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('mobile-menu-icon');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        icon.className = 'fa-solid fa-xmark text-lg';
+      } else {
+        closeMobileMenu();
+      }
+    }
+
+    function closeMobileMenu() {
+      document.getElementById('mobile-menu').classList.add('hidden');
+      document.getElementById('mobile-menu-icon').className = 'fa-solid fa-bars text-lg';
+    }
+
+    // ==================== SCROLL-SPY ACTIVE NAV HIGHLIGHTING ====================
+    function initScrollSpy() {
+      const sections = document.querySelectorAll('section[id]');
+      const desktopLinks = document.querySelectorAll('.nav-link');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+
+            desktopLinks.forEach(link => {
+              if (link.dataset.section === id) {
+                link.classList.add('text-[#0B5C6B]', 'bg-[#EEF5F8]');
+                link.classList.remove('text-[#3B5561]');
+              } else {
+                link.classList.remove('text-[#0B5C6B]', 'bg-[#EEF5F8]');
+                link.classList.add('text-[#3B5561]');
+              }
+            });
+
+            mobileLinks.forEach(link => {
+              if (link.dataset.section === id) {
+                link.classList.add('bg-[#0B5C6B]', 'text-white');
+                link.classList.remove('bg-[#EEF5F8]', 'text-[#3B5561]');
+              } else {
+                link.classList.remove('bg-[#0B5C6B]', 'text-white');
+                link.classList.add('bg-[#EEF5F8]', 'text-[#3B5561]');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-25% 0px -60% 0px', threshold: 0.05 });
+
+      sections.forEach(sec => observer.observe(sec));
+    }
+
+    // ==================== SCROLL REVEAL ANIMATION ====================
+    function initScrollReveal() {
+      const reveals = document.querySelectorAll('.reveal-section');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.08 });
+      reveals.forEach(el => revealObserver.observe(el));
+    }
+
+    // ==================== PROGRAMS RENDER & FILTER ====================
+    function renderPrograms(filter = 'all') {
+      currentProgramFilter = filter;
+      const grid = document.getElementById('programs-grid');
+      const dict = i18n[currentLang];
+      const filtered = filter === 'all'
+        ? programsData
+        : programsData.filter(p => p.category === filter);
+
+      grid.innerHTML = filtered.map((prog) => {
+        const originalIdx = programsData.indexOf(prog);
+        const item = prog[currentLang];
+        return `
+          <div class="aqua-card rounded-3xl p-7 transition flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="px-3 py-1 rounded-full bg-[#EEF5F8] text-[#0B5C6B] border border-[#DCE6EC] text-xs font-bold">${item.badge}</span>
+                <span class="text-xs font-semibold text-[#627D8A]">${item.level}</span>
+              </div>
+              <h3 class="text-xl font-extrabold text-[#0F2933] mb-2">${item.title}</h3>
+              <p class="text-sm text-[#3B5561] leading-relaxed mb-5">${item.desc}</p>
+              <div class="space-y-2 text-xs text-[#3B5561] bg-[#F7FAFC] border border-[#DCE6EC] p-4 rounded-2xl">
+                <div class="flex justify-between gap-2">
+                  <span class="text-[#627D8A]">${dict.card_duration}</span>
+                  <span class="font-bold text-[#0F2933] text-right">${item.duration}</span>
+                </div>
+                <div class="flex justify-between gap-2">
+                  <span class="text-[#627D8A]">${dict.card_schedule}</span>
+                  <span class="font-bold text-[#0F2933] text-right">${item.schedule}</span>
+                </div>
+                <div class="flex justify-between gap-2">
+                  <span class="text-[#627D8A]">${dict.card_fee}</span>
+                  <span class="font-extrabold text-[#C25934]">${item.price}</span>
+                </div>
+              </div>
+            </div>
+            <button onclick="selectProgramByIndex(${originalIdx})" class="mt-6 w-full py-3.5 rounded-2xl bg-[#0B5C6B] hover:bg-[#084754] text-white font-extrabold text-sm transition">
+              ${dict.card_select_btn}
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterPrograms(category) {
+      document.querySelectorAll('.prog-filter-btn').forEach(btn => {
+        if (btn.dataset.filter === category) {
+          btn.className = 'prog-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold bg-[#0B5C6B] text-white shadow-sm transition';
+        } else {
+          btn.className = 'prog-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold bg-white text-[#3B5561] border border-[#DCE6EC] hover:border-[#0E7490] hover:text-[#0F2933] transition';
+        }
+      });
+      renderPrograms(category);
+    }
+
+    // ==================== MEMBERSHIP BILLING TOGGLE ====================
+    function setBillingCycle(cycle) {
+      currentBillingCycle = cycle;
+      updateMembershipPricesUI();
+    }
+
+    function updateMembershipPricesUI() {
+      const mBtn = document.getElementById('bill-monthly-btn');
+      const qBtn = document.getElementById('bill-quarterly-btn');
+      const proPrice = document.getElementById('pro-plan-price');
+      const proUnit = document.getElementById('pro-plan-unit');
+      const vipPrice = document.getElementById('vip-plan-price');
+      const vipUnit = document.getElementById('vip-plan-unit');
+      const dict = i18n[currentLang];
+
+      if (currentBillingCycle === 'quarterly') {
+        qBtn.className = 'px-5 py-2 rounded-xl text-xs sm:text-sm font-extrabold bg-[#0B5C6B] text-white shadow-sm transition';
+        mBtn.className = 'px-5 py-2 rounded-xl text-xs sm:text-sm font-bold text-[#3B5561] hover:text-[#0F2933] transition';
+
+        proPrice.textContent = dict.plan2_price_q;
+        proUnit.textContent = dict.plan2_unit_q;
+        vipPrice.textContent = dict.plan3_price_q;
+        vipUnit.textContent = dict.plan3_unit_q;
+      } else {
+        mBtn.className = 'px-5 py-2 rounded-xl text-xs sm:text-sm font-extrabold bg-[#0B5C6B] text-white shadow-sm transition';
+        qBtn.className = 'px-5 py-2 rounded-xl text-xs sm:text-sm font-bold text-[#3B5561] hover:text-[#0F2933] transition';
+
+        proPrice.textContent = dict.plan2_price_m;
+        proUnit.textContent = dict.plan2_unit_m;
+        vipPrice.textContent = dict.plan3_price_m;
+        vipUnit.textContent = dict.plan3_unit_m;
+      }
+    }
+
+    function chooseMembershipPlan(tierIndex) {
+      let catalogIndex = 0;
+      if (tierIndex === 0) {
+        catalogIndex = 0;
+      } else if (tierIndex === 1) {
+        catalogIndex = currentBillingCycle === 'quarterly' ? 2 : 1;
+      } else if (tierIndex === 2) {
+        catalogIndex = currentBillingCycle === 'quarterly' ? 4 : 3;
+      }
+      const label = bookingCatalog.membership[currentLang][catalogIndex];
+      selectAndBook('membership', catalogIndex, label);
+    }
+
+    function selectProgramByIndex(progIndex) {
+      const p = programsData[progIndex][currentLang];
+      const label = `${p.title} (${p.price})`;
+      selectAndBook('program', progIndex, label);
+    }
+
+    // ==================== BOOKING DROPDOWN SYNC & SMOOTH SCROLL ====================
+    function populateProgramDropdown(selectedIndex = null) {
+      const type = document.getElementById('book-service-type').value;
+      const select = document.getElementById('book-item-select');
+      const prevIdx = selectedIndex !== null ? selectedIndex : (select.selectedIndex >= 0 ? select.selectedIndex : 0);
+
+      let options = [];
+      if (type === 'program') {
+        options = programsData.map(p => `${p[currentLang].title} (${p[currentLang].price})`);
+      } else {
+        options = bookingCatalog[type][currentLang] || [];
+      }
+
+      select.innerHTML = options.map((opt, idx) => `<option value="${idx}">${opt}</option>`).join('');
+      if (prevIdx >= 0 && prevIdx < options.length) {
+        select.selectedIndex = prevIdx;
+      }
+    }
+
+    function selectAndBook(serviceType, itemIndex, displayLabel) {
+      document.getElementById('book-service-type').value = serviceType;
+      populateProgramDropdown(itemIndex);
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+      showToast(`${i18n[currentLang].toast_selected}${displayLabel}`);
+    }
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      const bookingId = '#AQW-' + Math.floor(1000 + Math.random() * 9000);
+      const name = document.getElementById('book-name').value.trim();
+
+      const typeSelect = document.getElementById('book-service-type');
+      const typeText = typeSelect.options[typeSelect.selectedIndex].text;
+
+      const pkgSelect = document.getElementById('book-item-select');
+      const pkgText = pkgSelect.options[pkgSelect.selectedIndex].text;
+
+      const date = document.getElementById('book-date').value;
+
+      const slotSelect = document.getElementById('book-slot');
+      const slotText = slotSelect.options[slotSelect.selectedIndex].text;
+
+      const guestSelect = document.getElementById('book-guests');
+      const guestText = guestSelect.options[guestSelect.selectedIndex].text;
+
+      document.getElementById('receipt-id').textContent = bookingId;
+      document.getElementById('receipt-name').textContent = name;
+      document.getElementById('receipt-type').textContent = typeText;
+      document.getElementById('receipt-package').textContent = pkgText;
+      document.getElementById('receipt-datetime').textContent = `${date} • ${slotText}`;
+      document.getElementById('receipt-guests').textContent = guestText;
+
+      document.getElementById('booking-modal').classList.remove('hidden');
+      e.target.reset();
+      setDefaultBookingDate();
+      populateProgramDropdown(0);
+    }
+
+    function closeBookingModal() {
+      document.getElementById('booking-modal').classList.add('hidden');
+    }
+
+    function setDefaultBookingDate() {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      document.getElementById('book-date').value = tomorrow.toISOString().split('T')[0];
+    }
+
+    // ==================== GALLERY & LIGHTBOX ====================
+    function renderGallery(filter = 'all') {
+      currentGalleryFilter = filter;
+      const grid = document.getElementById('gallery-grid');
+      const items = filter === 'all'
+        ? galleryData
+        : galleryData.filter(item => item.category === filter);
+
+      grid.innerHTML = items.map(item => {
+        const text = item[currentLang];
+        return `
+          <div onclick="openGalleryModal(${galleryData.indexOf(item)})" class="group cursor-pointer rounded-3xl overflow-hidden bg-[#072833] border border-[#DCE6EC] relative h-72 shadow-sm hover:shadow-xl transition img-fallback">
+            <img src="${item.img}" alt="${text.title}" onerror="this.style.display='none'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#051D26]/95 via-[#072833]/25 to-transparent"></div>
+            ${item.type === 'video' ? `
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-16 h-16 rounded-full bg-[#0E7490]/95 text-white border-2 border-[#5EEAD4]/60 flex items-center justify-center text-xl shadow-lg group-hover:scale-110 transition">
+                  <i class="fa-solid fa-play ml-1 text-[#5EEAD4]"></i>
+                </div>
+              </div>
+            ` : ''}
+            <div class="absolute bottom-5 left-5 right-5 text-[#F1F8FA]">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#5EEAD4]">${text.tag}</span>
+              <h3 class="font-bold text-base mt-0.5 text-[#F1F8FA]">${text.title}</h3>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterGallery(category) {
+      document.querySelectorAll('.gal-filter-btn').forEach(btn => {
+        if (btn.dataset.gfilter === category) {
+          btn.className = 'gal-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#0B5C6B] text-white transition';
+        } else {
+          btn.className = 'gal-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#EEF5F8] text-[#3B5561] border border-[#DCE6EC] hover:border-[#0E7490] transition';
+        }
+      });
+      renderGallery(category);
+    }
+
+    function openGalleryModal(index) {
+      const item = galleryData[index];
+      const text = item[currentLang];
+      const dict = i18n[currentLang];
+
+      document.getElementById('lightbox-tag').textContent = text.tag;
+      document.getElementById('lightbox-title').textContent = text.title;
+      const body = document.getElementById('lightbox-body');
+
+      if (item.type === 'video') {
+        body.innerHTML = `
+          <div class="p-8 text-center text-[#F1F8FA] max-w-lg">
+            <div class="w-20 h-20 rounded-full bg-[#0E3B4A] border border-[#5EEAD4]/40 text-[#5EEAD4] flex items-center justify-center text-3xl mx-auto mb-5 animate-pulse">
+              <i class="fa-solid fa-film"></i>
+            </div>
+            <h4 class="text-xl font-extrabold mb-2 text-[#F1F8FA]">${dict.tour_modal_title}</h4>
+            <p class="text-sm text-[#C3DAE3] leading-relaxed mb-6">${dict.tour_modal_desc}</p>
+            <a href="#booking" onclick="closeGalleryModal()" class="inline-block bg-[#0E7490] hover:bg-[#0B5C6B] text-white font-extrabold text-sm px-6 py-3 rounded-xl border border-[#38BDF8]/30 transition">
+              ${dict.tour_modal_btn}
+            </a>
+          </div>
+        `;
+      } else {
+        body.innerHTML = `<img src="${item.img}" alt="${text.title}" class="w-full max-h-[75vh] object-contain" />`;
+      }
+
+      document.getElementById('gallery-modal').classList.remove('hidden');
+    }
+
+    function closeGalleryModal() {
+      document.getElementById('gallery-modal').classList.add('hidden');
+    }
+
+    // ==================== CONTACT FORM & TOAST ====================
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      e.target.reset();
+      showToast(i18n[currentLang].toast_inquiry);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast-banner');
+      document.getElementById('toast-message').textContent = msg;
+      toast.classList.remove('hidden');
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => toast.classList.add('hidden'), 4200);
+    }
+
+    // ==================== FAQ ACCORDION ====================
+    function renderFAQs() {
+      const container = document.getElementById('faq-container');
+      container.innerHTML = faqData.map((item, i) => {
+        const text = item[currentLang];
+        return `
+          <div class="faq-item bg-[#F7FAFC] rounded-2xl border border-[#DCE6EC] overflow-hidden ${i === 0 ? 'open' : ''}">
+            <button onclick="this.parentElement.classList.toggle('open')" class="w-full px-6 py-5 text-left flex justify-between items-center gap-4 hover:bg-[#EEF5F8] transition">
+              <span class="font-bold text-[#0F2933] text-sm sm:text-base">${text.q}</span>
+              <i class="fa-solid fa-chevron-down faq-icon text-[#0B5C6B] text-sm transition-transform duration-300 shrink-0"></i>
+            </button>
+            <div class="faq-answer px-6">
+              <p class="text-sm text-[#3B5561] leading-relaxed pb-5 border-t border-[#DCE6EC] pt-3">${text.a}</p>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ==================== INITIALIZE ON LOAD ====================
+    window.addEventListener('DOMContentLoaded', () => {
+      setDefaultBookingDate();
+      setLanguage(currentLang, false);
+      initScrollSpy();
+      initScrollReveal();
+    });
+  </script>
+</body>
+</html>
